@@ -229,18 +229,14 @@
       error.classList.remove('active');
       
       if (typeof netlifyIdentity === 'undefined') {
-        showError('Netlify Identity non chargé. Vérifiez votre connexion internet.');
+        showError('Netlify Identity non chargé.');
         return;
       }
 
-      log('Ouverture modal login...');
-      try {
-        netlifyIdentity.open('login');
-      } catch (e) {
-        log('Erreur: ' + e.message);
-        // Fallback: redirect to Netlify Identity directly
-        window.location.href = 'https://vprrtestblog.netlify.app/.netlify/identity';
-      }
+      log('Redirection vers Netlify Identity...');
+      // Redirection directe - la modal ne fonctionne pas toujours
+      const returnUrl = encodeURIComponent(window.location.href);
+      window.location.href = `https://vprrtestblog.netlify.app/.netlify/identity?return_url=${returnUrl}`;
     });
 
     window.addEventListener('load', () => {
