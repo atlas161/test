@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administration - VPRR Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #F9F7F5;
+      color: #2D241E;
+    }
+    .cms-root {
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <!-- Decap CMS via CDN -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
+  <!-- Script pour initialiser Decap CMS avec notre config -->
+  <script>
+    // La configuration est chargée depuis config.yml
+    // Decap CMS détecte automatiquement le fichier config.yml
+    
+    // Optionnel : Personnalisation de l'interface
+    CMS.registerPreviewStyle('/assets/css/styles.css');
+    
+    // Fonction pour générer le slug (URL de l'article)
+    CMS.registerEventListener({
+      name: 'preSave',
+      handler: ({ entry }) => {
+        // S'assurer que la date est définie
+        if (!entry.get('data').get('date')) {
+          return entry.get('data').set('date', new Date().toISOString().split('T')[0]);
+        }
+        return entry;
+      }
+    });
+  </script>
+</body>
+</html>

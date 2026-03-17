@@ -1,0 +1,133 @@
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: 'Nouvel article : {{slug}}'
+    update: 'Mise à jour article : {{slug}}'
+    delete: 'Suppression article : {{slug}}'
+    uploadMedia: 'Nouvelle image : {{path}}'
+    deleteMedia: 'Suppression image : {{path}}'
+
+# Authentification via Netlify Identity
+site_url: https://vprr.fr
+locale: 'fr'
+
+display_url: https://vprr.fr
+
+media_folder: "assets/img/blog"
+public_folder: "/assets/img/blog"
+
+# Collections
+Collections:
+  - name: "blog"
+    label: "Articles Blog"
+    label_singular: "Article"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "blog/{{slug}}.html"
+    editor:
+      preview: true
+    sortable_fields: ['date', 'title']
+    view_filters:
+      - label: Brouillons
+        field: draft
+        pattern: true
+      - label: Publiés
+        field: draft
+        pattern: false
+    view_groups:
+      - label: Année
+        field: date
+        pattern: "\d{4}"
+    
+    fields:
+      - label: "Titre"
+        name: "title"
+        widget: "string"
+        required: true
+        hint: "Le titre de l'article (affiché en H1 et dans les résultats Google)"
+        
+      - label: "Slug (URL de l'article)"
+        name: "slug"
+        widget: "string"
+        required: true
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Le slug doit être en minuscules sans accents ni espaces (ex: choisir-peinture-exterieure)']
+        hint: "L'URL de l'article (ex: comment-choisir-peinture-exterieure)"
+        
+      - label: "Description SEO (Meta Description)"
+        name: "description"
+        widget: "text"
+        required: true
+        hint: "Résumé de 150-160 caractères pour les moteurs de recherche"
+        
+      - label: "Date de publication"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD/MM/YYYY"
+        time_format: false
+        required: true
+        default: "{{now}}"
+        
+      - label: "Image de couverture"
+        name: "image"
+        widget: "image"
+        required: true
+        hint: "Image principale de l'article (format paysage, min 1200x630px)"
+        media_library:
+          config:
+            multiple: false
+            
+      - label: "Brouillon"
+        name: "draft"
+        widget: "boolean"
+        default: true
+        hint: "Cochez tant que l'article n'est pas prêt à être publié"
+        
+      - label: "Tags / Mots-clés"
+        name: "tags"
+        widget: "list"
+        required: false
+        hint: "Tags séparés par des virgules (ex: peinture, extérieur, conseils)"
+        
+      - label: "Temps de lecture (minutes)"
+        name: "readtime"
+        widget: "number"
+        required: false
+        value_type: "int"
+        min: 1
+        max: 60
+        default: 5
+        hint: "Estimation du temps de lecture"
+        
+      - label: "Contenu de l'article"
+        name: "body"
+        widget: "markdown"
+        required: true
+        hint: "Rédigez le contenu de l'article en Markdown"
+        buttons:
+          - bold
+          - italic
+          - h2
+          - h3
+          - link
+          - quote
+          - bulleted-list
+          - numbered-list
+          - image
+        editor_components:
+          - image
+
+# Configuration de l'éditeur
+editor:
+  preview: true
+
+# Publier sans review (accès direct pour le client)
+publish_mode: simple
+
+# Logo personnalisé dans l'interface
+custom_logo_url: /media/VPRR-LOGO.svg
+
+# Footer personnalisé
+custom_footer_text: "VPRR - Villéger Peinture Raval Rénovation"
