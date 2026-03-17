@@ -22,8 +22,8 @@ const CONFIG = {
   templatePath: path.join(__dirname, '..', 'blog', 'template-article.html'),
   outputDir: path.join(__dirname, '..', 'blog'),
   sitemapPath: path.join(__dirname, '..', 'sitemap.xml'),
-  siteUrl: 'https://vprrtestblog.netlify.app',
-  blogUrl: 'https://vprrtestblog.netlify.app/blog'
+  siteUrl: 'https://vprr.fr',
+  blogUrl: 'https://vprr.fr/blog'
 };
 
 /**
