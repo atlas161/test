@@ -2,22 +2,31 @@ backend:
   name: git-gateway
   branch: main
   commit_messages:
-    create: 'Nouvel article : {{slug}}'
-    update: 'Mise à jour article : {{slug}}'
-    delete: 'Suppression article : {{slug}}'
-    uploadMedia: 'Nouvelle image : {{path}}'
-    deleteMedia: 'Suppression image : {{path}}'
+    create: "✨ Nouveau: {{slug}}"
+    update: "📝 Mise à jour: {{slug}}"
+    delete: "🗑️ Supprimé: {{slug}}"
+    uploadMedia: "📎 Media: {{path}}"
+    deleteMedia: "🗑️ Media supprimé: {{path}}"
 
-# Authentification via Netlify Identity
-site_url: https://vprr.fr
-locale: 'fr'
+# Configuration du site
+site_url: https://vprrtestblog.netlify.app
+display_url: https://vprrtestblog.netlify.app/blog/
+locale: "fr"
 
-display_url: https://vprr.fr
-
+# Médias
 media_folder: "assets/img/blog"
 public_folder: "/assets/img/blog"
 
-# Collections
+# Éditeur visuel
+editor:
+  preview: true
+
+# Mode de publication (simple = direct)
+publish_mode: simple
+
+# Logo personnalisé
+custom_logo_url: /media/VPRR-LOGO.svg
+custom_footer_text: "VPRR - Villéger Peinture Raval Rénovation"
 Collections:
   - name: "blog"
     label: "Articles Blog"
@@ -105,19 +114,39 @@ Collections:
         name: "body"
         widget: "markdown"
         required: true
-        hint: "Rédigez le contenu de l'article en Markdown"
+        hint: "Rédigez votre article. Supporte : texte, images, vidéos YouTube/Vimeo, tableaux, citations."
         buttons:
           - bold
           - italic
-          - h2
-          - h3
+          - code
           - link
+          - heading-one
+          - heading-two
+          - heading-three
           - quote
           - bulleted-list
           - numbered-list
           - image
         editor_components:
           - image
+          - code-block
+        
+      - label: "Vidéo (optionnel)"
+        name: "video"
+        widget: "object"
+        required: false
+        hint: "Ajoutez une vidéo YouTube ou Vimeo"
+        fields:
+          - label: "URL de la vidéo"
+            name: "url"
+            widget: "string"
+            required: false
+            hint: "Ex: https://youtube.com/watch?v=... ou https://vimeo.com/..."
+          - label: "Titre de la vidéo"
+            name: "title"
+            widget: "string"
+            required: false
+            hint: "Description affichée sous la vidéo"
 
 # Configuration de l'éditeur
 editor:

@@ -3,45 +3,345 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
   <title>Administration - VPRR Blog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #F9F7F5;
-      color: #2D241E;
-    }
-    .cms-root {
+      background: linear-gradient(135deg, #F9F7F5 0%, #F5F2EE 100%);
       min-height: 100vh;
+    }
+    
+    /* Écran de chargement */
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #F9F7F5;
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+    }
+    
+    #loading-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .loading-logo {
+      width: 120px;
+      height: 40px;
+      margin-bottom: 24px;
+    }
+    
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #E8E4DE;
+      border-top-color: #A88B5E;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    .loading-text {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #6B5D52;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Écran de connexion personnalisé */
+    #login-screen {
+      position: fixed;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #F9F7F5 0%, #F5F2EE 100%);
+      z-index: 9998;
+      padding: 24px;
+    }
+    
+    #login-screen.active {
+      display: flex;
+    }
+    
+    .login-card {
+      background: white;
+      border-radius: 24px;
+      padding: 48px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(45, 36, 30, 0.08);
+    }
+    
+    .login-logo {
+      width: 150px;
+      height: 50px;
+      margin: 0 auto 32px;
+    }
+    
+    .login-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    .login-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #2D241E;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    
+    .login-subtitle {
+      font-size: 15px;
+      color: #6B5D52;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    
+    .login-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 16px 24px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 500;
+      color: white;
+      background: #673A12;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .login-btn:hover {
+      background: #522e0e;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(103, 58, 18, 0.3);
+    }
+    
+    .login-btn i {
+      font-size: 18px;
+    }
+    
+    .login-help {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid #E8E4DE;
+    }
+    
+    .login-help p {
+      font-size: 13px;
+      color: #8B7D72;
+      margin-bottom: 8px;
+    }
+    
+    .login-help a {
+      color: #673A12;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .login-help a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Container CMS */
+    #cms-root {
+      min-height: 100vh;
+      display: none;
+    }
+    
+    #cms-root.active {
+      display: block;
+    }
+    
+    /* Message d'erreur */
+    .error-message {
+      display: none;
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      border-radius: 8px;
+      color: #DC2626;
+      font-size: 14px;
+    }
+    
+    .error-message.active {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <!-- Decap CMS via CDN -->
+  <!-- Écran de chargement -->
+  <div id="loading-screen">
+    <div class="loading-logo">
+      <svg viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="28" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#673A12">VPRR</text>
+        <text x="55" y="28" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#6B5D52">Admin</text>
+      </svg>
+    </div>
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Chargement de l'interface...</p>
+  </div>
+
+  <!-- Écran de connexion personnalisé -->
+  <div id="login-screen">
+    <div class="login-card">
+      <div class="login-logo">
+        <img src="../media/VPRR-LOGO.svg" alt="VPRR">
+      </div>
+      <h1 class="login-title">Administration Blog</h1>
+      <p class="login-subtitle">
+        Gérez vos articles, créez du contenu et administrez votre blog de guides et conseils.
+      </p>
+      <button class="login-btn" id="login-btn" onclick="openLoginModal()">
+        <i class="fa-solid fa-lock" aria-hidden="true"></i>
+        Se connecter
+      </button>
+      <div class="error-message" id="error-message">
+        Une erreur est survenue. Veuillez réessayer.
+      </div>
+      <div class="login-help">
+        <p>Vous n'avez pas encore de compte ?</p>
+        <a href="mailto:villergerstephane204@gmail.com?subject=Demande%20accès%20admin%20blog">Demander un accès</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container Decap CMS -->
+  <div id="cms-root"></div>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Netlify Identity Widget (CRITIQUE pour l'authentification) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
+  <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
-  <!-- Script pour initialiser Decap CMS avec notre config -->
   <script>
-    // La configuration est chargée depuis config.yml
-    // Decap CMS détecte automatiquement le fichier config.yml
+    // Configuration pour l'URL de test
+    netlifyIdentity.setLocale('fr');
     
-    // Optionnel : Personnalisation de l'interface
-    CMS.registerPreviewStyle('/assets/css/styles.css');
+    // URL de test actuelle
+    const SITE_URL = 'https://vprrtestblog.netlify.app';
+    const loadingScreen = document.getElementById('loading-screen');
+    const loginScreen = document.getElementById('login-screen');
+    const cmsRoot = document.getElementById('cms-root');
+    const errorMessage = document.getElementById('error-message');
     
-    // Fonction pour générer le slug (URL de l'article)
-    CMS.registerEventListener({
-      name: 'preSave',
-      handler: ({ entry }) => {
-        // S'assurer que la date est définie
-        if (!entry.get('data').get('date')) {
-          return entry.get('data').set('date', new Date().toISOString().split('T')[0]);
-        }
-        return entry;
+    // Fonction pour ouvrir la modal de connexion
+    function openLoginModal() {
+      errorMessage.classList.remove('active');
+      netlifyIdentity.open('login');
+    }
+    
+    // Fonction pour initialiser le CMS
+    function initCMS() {
+      loadingScreen.classList.add('hidden');
+      loginScreen.classList.remove('active');
+      cmsRoot.classList.add('active');
+      
+      // Initialiser Decap CMS
+      if (window.CMS) {
+        CMS.init();
+      }
+    }
+    
+    // Fonction pour afficher l'écran de connexion
+    function showLogin() {
+      loadingScreen.classList.add('hidden');
+      loginScreen.classList.add('active');
+    }
+    
+    // Gestionnaire d'événements Netlify Identity
+    netlifyIdentity.on('init', user => {
+      if (user) {
+        // Utilisateur déjà connecté
+        initCMS();
+      } else {
+        // Pas d'utilisateur, afficher login
+        showLogin();
       }
     });
+    
+    netlifyIdentity.on('login', user => {
+      // Connexion réussie
+      initCMS();
+      netlifyIdentity.close();
+    });
+    
+    netlifyIdentity.on('logout', () => {
+      // Déconnexion
+      window.location.reload();
+    });
+    
+    netlifyIdentity.on('error', err => {
+      console.error('Erreur Netlify Identity:', err);
+      errorMessage.textContent = 'Erreur de connexion : ' + (err.message || 'Veuillez réessayer');
+      errorMessage.classList.add('active');
+    });
+    
+    // Gestion de l'invitation par email
+    netlifyIdentity.on('invite', () => {
+      // Quand l'utilisateur clique sur le lien d'invitation
+      netlifyIdentity.open('signup');
+    });
+    
+    // Vérifier l'état après chargement
+    window.addEventListener('load', () => {
+      // Laisser le temps à Netlify Identity de s'initialiser
+      setTimeout(() => {
+        const user = netlifyIdentity.currentUser();
+        if (!user && !loginScreen.classList.contains('active')) {
+          showLogin();
+        }
+      }, 1000);
+    });
+    
+    // Gestion du token dans l'URL (pour les invitations)
+    if (window.location.hash && window.location.hash.includes('invite_token')) {
+      // C'est une invitation, laisser Netlify gérer
+      setTimeout(() => {
+        netlifyIdentity.open('signup');
+      }, 500);
+    }
+    
+    if (window.location.hash && window.location.hash.includes('confirmation_token')) {
+      // Confirmation d'email
+      setTimeout(() => {
+        netlifyIdentity.open('login');
+      }, 500);
+    }
+    
+    if (window.location.hash && window.location.hash.includes('recovery_token')) {
+      // Réinitialisation de mot de passe
+      setTimeout(() => {
+        netlifyIdentity.open('recover');
+      }, 500);
+    }
   </script>
 </body>
 </html>

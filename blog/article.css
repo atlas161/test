@@ -368,6 +368,28 @@
   margin: 0 0 var(--space-sm);
 }
 
+/* Vidéos embed responsive */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* Ratio 16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: var(--space-xl) 0;
+  border-radius: 16px;
+  background: var(--color-surface-alt);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 16px;
+}
+
 .article-content figcaption {
   font-size: 0.875rem;
   color: var(--color-text-muted);
