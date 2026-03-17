@@ -103,21 +103,6 @@ collections:
         widget: "markdown"
         required: true
         hint: "Rédigez votre article. Supporte : texte, images, vidéos YouTube/Vimeo, tableaux, citations."
-        buttons:
-          - bold
-          - italic
-          - code
-          - link
-          - heading-one
-          - heading-two
-          - heading-three
-          - quote
-          - bulleted-list
-          - numbered-list
-          - image
-        editor_components:
-          - image
-          - code-block
         
       - label: "Vidéo (optionnel)"
         name: "video"
