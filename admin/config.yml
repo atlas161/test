@@ -17,7 +17,7 @@ locale: "fr"
 media_folder: "assets/img/blog"
 public_folder: "/assets/img/blog"
 
-Collections:
+collections:
   - name: "blog"
     label: "Articles Blog"
     label_singular: "Article"
