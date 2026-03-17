@@ -186,6 +186,23 @@
       <button class="login-btn" id="login-btn">Se connecter</button>
       <div class="error-message" id="error-message"></div>
       <div class="debug-info" id="debug-info">Debug info...</div>
+      
+      <div id="config-help" style="display: none; margin-top: 20px; padding: 16px; background: #FEF3C7; border-radius: 8px; text-align: left;">
+        <h3 style="font-size: 14px; color: #92400E; margin-bottom: 10px;">⚠️ Configuration requise</h3>
+        <p style="font-size: 12px; color: #78350F; line-height: 1.5; margin-bottom: 10px;">
+          Netlify Identity n'est pas activé sur votre site. Suivez ces étapes :
+        </p>
+        <ol style="font-size: 12px; color: #78350F; line-height: 1.6; margin-left: 16px;">
+          <li>Allez sur <strong>vprrtestblog.netlify.app</strong></li>
+          <li>Cliquez sur <strong>"Site settings"</strong></li>
+          <li>Dans le menu de gauche, cliquez <strong>"Identity"</strong></li>
+          <li>Cliquez <strong>"Enable Identity"</strong></li>
+          <li>Puis <strong>"Services"</strong> → <strong>"Enable Git Gateway"</strong></li>
+        </ol>
+        <p style="font-size: 11px; color: #92400E; margin-top: 10px;">
+          Après activation, rechargez cette page.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -233,10 +250,16 @@
         return;
       }
 
-      log('Redirection vers Netlify Identity...');
-      // Redirection directe - la modal ne fonctionne pas toujours
-      const returnUrl = encodeURIComponent(window.location.href);
-      window.location.href = `https://vprrtestblog.netlify.app/.netlify/identity?return_url=${returnUrl}`;
+      log('Tentative connexion...');
+      
+      // Vérifier si Identity est configuré
+      try {
+        netlifyIdentity.open('login');
+        log('Modal ouverte');
+      } catch (e) {
+        showError('Configuration Netlify Identity manquante. Voir instructions ci-dessous.');
+        document.getElementById('config-help').style.display = 'block';
+      }
     });
 
     window.addEventListener('load', () => {
