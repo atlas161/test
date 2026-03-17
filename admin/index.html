@@ -168,6 +168,19 @@
     .error-message.active {
       display: block;
     }
+    
+    /* Forcer l'affichage de la modal Netlify Identity */
+    .netlify-identity-modal,
+    [data-netlify-identity-modal],
+    div[class*="identity"],
+    div[id*="identity"] {
+      z-index: 10000 !important;
+      position: fixed !important;
+    }
+    
+    iframe[src*="netlify"] {
+      z-index: 10000 !important;
+    }
   </style>
 </head>
 <body>
