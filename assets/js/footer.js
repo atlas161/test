@@ -4,8 +4,9 @@
 
   // Fonction pour charger et inclure le footer universel
   function includeFooter() {
-    // Toujours utiliser le même footer pour toute la cohérence
-    const footerFile = 'includes/footer.html';
+    // Détecter si on est dans une page blog pour ajuster le chemin
+    const isBlogPage = window.location.pathname.includes('/blog/');
+    const footerFile = isBlogPage ? '../includes/footer.html' : 'includes/footer.html';
 
     // Charger le footer
     fetch(footerFile)

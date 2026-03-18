@@ -69,20 +69,12 @@ document.addEventListener("DOMContentLoaded", () => {
         burger.style.background = ''; // Reset
         nav.style.display = 'none';
         
-        // Restaurer la position du scroll sans animation bizarre
-        document.body.style.transition = 'none';
+        // Restaurer la position du scroll
         document.body.style.position = '';
         document.body.style.top = '';
         document.body.style.width = '';
         document.body.style.height = '';
-        
-        // Restaurer le scroll immédiatement
         window.scrollTo(0, scrollPosition);
-        
-        // Réactiver les transitions après un court délai
-        setTimeout(() => {
-          document.body.style.transition = '';
-        }, 50);
         
         console.log('Menu fermé - Scroll restauré à:', scrollPosition);
       } else {
@@ -146,6 +138,77 @@ document.addEventListener("DOMContentLoaded", () => {
     //   }
     // });
 
+    // Debug : écouter tous les clics sur les liens services
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('a');
+      if (target && target.classList.contains('service-cta-card')) {
+        console.log('CLIC SUR CARTE SERVICE DÉTECTÉ:', target.href);
+        console.log('Target:', target);
+        console.log('Event:', e);
+        console.log('URL actuelle avant clic:', window.location.href);
+      }
+    }, true);
+
+    // Debug : monitorer tous les changements d'URL
+    let currentUrl = window.location.href;
+    console.log('URL initiale:', currentUrl);
+    
+    // Surveiller les changements d'URL
+    setInterval(() => {
+      if (window.location.href !== currentUrl) {
+        console.log('URL CHANGÉE de:', currentUrl);
+        console.log('URL CHANGÉE vers:', window.location.href);
+        
+        // Afficher la stack trace pour voir qui a causé le changement
+        console.trace('Stack trace du changement d\'URL');
+        
+        currentUrl = window.location.href;
+      }
+    }, 100);
+    
+    // Debug : intercepter TOUS les appels à window.location
+    const originalReplace = window.location.replace;
+    const originalAssign = window.location.assign;
+    const originalHash = window.location.hash;
+    
+    // Intercepter window.location.href
+    let hrefValue = window.location.href;
+    Object.defineProperty(window.location, 'href', {
+      get: function() {
+        return hrefValue;
+      },
+      set: function(value) {
+        console.log('window.location.href MODIFIÉ vers:', value);
+        console.trace('Stack trace de href modification');
+        hrefValue = value;
+        return value;
+      }
+    });
+    
+    // Intercepter window.location.hash
+    Object.defineProperty(window.location, 'hash', {
+      get: function() {
+        return originalHash;
+      },
+      set: function(value) {
+        console.log('window.location.hash MODIFIÉ vers:', value);
+        console.trace('Stack trace de hash modification');
+        return originalHash = value;
+      }
+    });
+    
+    window.location.replace = function(...args) {
+      console.log('window.location.replace appelé avec:', args);
+      console.trace('Stack trace de replace');
+      return originalReplace.apply(this, args);
+    };
+    
+    window.location.assign = function(...args) {
+      console.log('window.location.assign appelé avec:', args);
+      console.trace('Stack trace de assign');
+      return originalAssign.apply(this, args);
+    };
+
     // Amélioration de l'accessibilité : ferme le menu avec la touche 'Échap'.
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && nav.classList.contains('open')) {
@@ -153,20 +216,12 @@ document.addEventListener("DOMContentLoaded", () => {
         burger.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('nav-open');
         
-        // Restaurer la position du scroll sans animation bizarre
-        document.body.style.transition = 'none';
+        // Restaurer la position du scroll
         document.body.style.position = '';
         document.body.style.top = '';
         document.body.style.width = '';
         document.body.style.height = '';
-        
-        // Restaurer le scroll immédiatement
         window.scrollTo(0, scrollPosition);
-        
-        // Réactiver les transitions après un court délai
-        setTimeout(() => {
-          document.body.style.transition = '';
-        }, 50);
         
         burger.focus();
         console.log('Menu fermé par Échap - Scroll restauré à:', scrollPosition);
@@ -183,20 +238,12 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.remove('nav-open');
         burger.style.background = ''; // Reset
         
-        // Restaurer la position du scroll sans animation bizarre
-        document.body.style.transition = 'none';
+        // Restaurer la position du scroll
         document.body.style.position = '';
         document.body.style.top = '';
         document.body.style.width = '';
         document.body.style.height = '';
-        
-        // Restaurer le scroll immédiatement
         window.scrollTo(0, scrollPosition);
-        
-        // Réactiver les transitions après un court délai
-        setTimeout(() => {
-          document.body.style.transition = '';
-        }, 50);
         
         console.log('Menu fermé par lien - Scroll restauré à:', scrollPosition);
         
@@ -226,10 +273,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- SMOOTH SCROLL AMÉLIORÉ ---
-  // Gère le défilement fluide pour tous les liens d'ancrage
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  // Gère le défilement fluide pour les liens d'ancrage internes uniquement
+  document.querySelectorAll('a[href^="#"], a[href*=".html#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
+      console.log('Smooth scroll intercepté:', href);
+      
+      // Ignorer les liens qui pointent vers d'autres pages
+      if (href.includes('.html#') || href.startsWith('index.html#') || href.startsWith('../index.html#')) {
+        console.log('Lien inter-page ignoré:', href);
+        return; // Laisser le comportement par défaut pour les liens inter-pages
+      }
       if (href === '#top') {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -252,11 +306,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- SCROLL SPY AMÉLIORÉ ---
   // Met en surbrillance le lien de navigation correspondant à la section visible à l'écran.
-  const sectionLinks = Array.from(document.querySelectorAll('.primary-nav .menu a.nav-link[href^="#"]'));
-  const idFromHref = (href) => href.replace('#','');
+  const sectionLinks = Array.from(document.querySelectorAll('.primary-nav .menu a.nav-link[href*="#"]'));
+  const idFromHref = (href) => {
+  const hashIndex = href.indexOf('#');
+  return hashIndex !== -1 ? href.substring(hashIndex + 1) : '';
+};
   const targets = sectionLinks
-    .map(a => ({ a, el: document.getElementById(idFromHref(a.getAttribute('href'))) }))
-    .filter(x => !!x.el);
+    .map(a => ({ a, el: document.getElementById(idFromHref(a.getAttribute('href'))) }));
+  
+  // Garder une référence de tous les liens pour la navigation
+  const allLinks = sectionLinks;
 
   const observeSections = () => {
     // Cache des positions des sections (évite le layout thrashing)
@@ -271,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const scrollY = window.scrollY;
       cachedViewportHeight = window.innerHeight; // Mettre à jour au resize
       
-      for (const { a, el } of targets) {
+      for (const { a, el } of targets.filter(x => !!x.el)) {
         const rect = el.getBoundingClientRect();
         positions.push({
           a,

@@ -1,6 +1,55 @@
 /* ===================================================================
-   BLOG STYLES - Corrections des couleurs
+   BLOG STYLES - Corrections des couleurs et navbar
    =================================================================== */
+
+/* Navbar sur pages blog */
+.blog-page .site-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.blog-page .logo {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.blog-page .logo:hover {
+  opacity: 0.8;
+}
+
+.blog-page .burger {
+  background: transparent;
+  border: none;
+  padding: var(--space-sm);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.blog-page .burger-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-primary);
+  margin: 5px 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+/* Overlay sombre derrière le menu sur pages blog */
+.blog-page body.nav-open::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  pointer-events: all;
+}
 
 /* Footer sur pages blog - correction du contraste */
 .blog-page .site-footer,

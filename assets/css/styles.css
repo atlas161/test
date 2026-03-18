@@ -748,12 +748,6 @@ body.nav-open .burger-bar:nth-child(3) { transform: translateY(-7px) rotate(-45d
     position: fixed !important;
     width: 100% !important;
     height: 100% !important;
-    transition: none !important;
-  }
-
-  /* Transition fluide pour le body quand le menu se ferme */
-  body:not(.nav-open) {
-    transition: position 0.3s ease-out;
   }
 
   /* Overlay sombre derrière le menu */
