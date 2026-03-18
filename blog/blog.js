@@ -124,42 +124,13 @@ function getCategory(article) {
  */
 async function loadArticlesList() {
   try {
-    // En production, cette liste serait générée par le build
-    // Pour le développement, on simule quelques articles
-    const sampleArticles = [
-      {
-        slug: 'choisir-peinture-exterieure',
-        title: 'Comment choisir sa peinture extérieure ?',
-        date: '2024-03-15',
-        description: 'Guide complet pour sélectionner la peinture adaptée à votre façade : types de peinture, finitions, préparation et budget.',
-        image: '../assets/img/blog/peinture-exterieure.jpg',
-        tags: ['peinture', 'exterieur', 'conseils'],
-        readtime: 5,
-        draft: false
-      },
-      {
-        slug: 'ravalement-facade-combien-ca-coute',
-        title: 'Ravalement de façade : combien ça coûte en 2024 ?',
-        date: '2024-03-10',
-        description: 'Découvrez les prix moyens du ravalement de façade, les facteurs qui influencent le coût et les aides financières disponibles.',
-        image: '../assets/img/blog/ravalement-cout.jpg',
-        tags: ['facade', 'prix', 'renovation'],
-        readtime: 7,
-        draft: false
-      },
-      {
-        slug: 'nettoyer-toiture-mousse',
-        title: 'Comment nettoyer sa toiture de la mousse ?',
-        date: '2024-03-05',
-        description: 'Méthodes efficaces pour éliminer la mousse et les algues de votre toiture : démoussage, hydro-gommage et prévention.',
-        image: '../assets/img/blog/toiture-mousse.jpg',
-        tags: ['toiture', 'entretien', 'conseils'],
-        readtime: 6,
-        draft: false
-      }
-    ];
-    
-    return sampleArticles.filter(a => !a.draft);
+    // Charger les articles depuis le fichier JSON généré par le build
+    const response = await fetch('./articles.json');
+    if (!response.ok) {
+      throw new Error('Impossible de charger articles.json');
+    }
+    const articles = await response.json();
+    return articles.filter(a => !a.draft);
   } catch (error) {
     console.error('Erreur lors du chargement des articles:', error);
     return [];

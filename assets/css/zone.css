@@ -65,6 +65,62 @@
   width: 100%;
   height: 350px;
   z-index: 1;
+  position: relative;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+}
+
+/* États de chargement de la carte */
+.zone-map.map-loading {
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-border-light) 100%);
+}
+
+.zone-map.map-loading::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid rgba(103, 58, 18, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--color-primary);
+  animation: mapSpin 1s ease-in-out infinite;
+  z-index: 10;
+}
+
+.zone-map.map-loading::after {
+  content: 'Chargement de la carte...';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 30px);
+  color: var(--color-text-light);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  z-index: 10;
+}
+
+.zone-map.map-loaded {
+  background: transparent;
+}
+
+@keyframes mapSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Optimisation des tuiles de carte */
+.zone-map .map-tiles {
+  transition: opacity 0.3s ease;
+}
+
+.zone-map.map-loading .map-tiles {
+  opacity: 0;
+}
+
+.zone-map.map-loaded .map-tiles {
+  opacity: 1;
 }
 
 @media (min-width: 640px) {
@@ -108,7 +164,7 @@
   -webkit-backdrop-filter: blur(8px);
   font-size: 10px !important;
   padding: 4px 8px !important;
-  border-radius: var(--radius-sm) 0 0 0 !important;
+  border-radius: var(--radius-sm) !important;
 }
 
 /* Popup personnalisé */

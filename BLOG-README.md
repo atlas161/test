@@ -10,7 +10,7 @@ npm install
 
 ### 1. Via l'interface admin (recommandé)
 
-1. Allez sur `https://vprrtestblog.netlify.app/admin/`
+1. Allez sur `https://vprr.fr/admin/`
 2. Connectez-vous avec votre compte Netlify Identity
 3. Cliquez sur "Articles Blog" → "Nouvel Article"
 4. Remplissez le formulaire :
@@ -103,7 +103,7 @@ Ou dans le contenu Markdown :
 
 ## Modifier un article
 
-1. Allez sur `https://vprrtestblog.netlify.app/admin/`
+1. Allez sur `https://vprr.fr/admin/`
 2. Cliquez sur "Articles Blog"
 3. Trouvez l'article à modifier
 4. Cliquez dessus pour l'ouvrir

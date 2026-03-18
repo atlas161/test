@@ -36,12 +36,115 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- GESTION DU MENU MOBILE ---
   if (burger && nav) {
-    // Au clic sur le burger, ouvre/ferme le menu overlay.
-    burger.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("open");
-      burger.setAttribute("aria-expanded", String(isOpen));
-      document.body.classList.toggle('nav-open', isOpen);
-    });
+    console.log('Burger menu trouvé:', burger);
+    console.log('Navigation trouvée:', nav);
+    
+    // Variable pour éviter les doubles clics
+    let isProcessing = false;
+    
+    // Variables pour gérer la position du scroll
+    let scrollPosition = 0;
+    let bodyTop = 0;
+    
+    // Supprimer tous les écouteurs existants pour éviter les doublons
+    burger.removeEventListener('click', burgerClickHandler);
+    
+    // Fonction du gestionnaire de clic
+    function burgerClickHandler(e) {
+      if (isProcessing) return;
+      isProcessing = true;
+      
+      console.log('Burger cliqué!');
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const isOpen = nav.classList.contains("open");
+      console.log('Menu ouvert actuel:', isOpen);
+      
+      if (isOpen) {
+        // Fermer le menu
+        nav.classList.remove("open");
+        burger.setAttribute("aria-expanded", "false");
+        document.body.classList.remove('nav-open');
+        burger.style.background = ''; // Reset
+        nav.style.display = 'none';
+        
+        // Restaurer la position du scroll sans animation bizarre
+        document.body.style.transition = 'none';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.height = '';
+        
+        // Restaurer le scroll immédiatement
+        window.scrollTo(0, scrollPosition);
+        
+        // Réactiver les transitions après un court délai
+        setTimeout(() => {
+          document.body.style.transition = '';
+        }, 50);
+        
+        console.log('Menu fermé - Scroll restauré à:', scrollPosition);
+      } else {
+        // Sauvegarder la position du scroll avant d'ouvrir le menu
+        scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        bodyTop = document.body.style.top;
+        
+        // Ouvrir le menu - DESIGN CORRIGÉ
+        nav.classList.add("open");
+        burger.setAttribute("aria-expanded", "true");
+        document.body.classList.add('nav-open');
+        
+        // Appliquer le position fixed avec la position sauvegardée
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.width = '100%';
+        document.body.style.height = '100vh';
+        
+        // Forcer l'affichage avec le design agrandi
+        nav.style.display = 'flex !important';
+        nav.style.position = 'fixed !important';
+        nav.style.top = '0 !important';
+        nav.style.right = '0 !important';
+        nav.style.bottom = '0 !important';
+        nav.style.width = '320px !important';
+        nav.style.maxWidth = '90vw !important';
+        nav.style.background = 'rgba(255, 255, 255, 0.95) !important';
+        nav.style.backdropFilter = 'blur(20px) !important';
+        nav.style.webkitBackdropFilter = 'blur(20px) !important';
+        nav.style.borderLeft = '1px solid rgba(255, 255, 255, 0.3) !important';
+        nav.style.transform = 'translateX(0) !important';
+        nav.style.zIndex = '999 !important';
+        nav.style.boxShadow = '-6px 0 24px rgba(0, 0, 0, 0.1) !important';
+        nav.style.padding = 'var(--space-md) !important';
+        nav.style.paddingTop = 'calc(60px + var(--space-md)) !important';
+        nav.style.paddingBottom = 'var(--space-lg) !important';
+        
+        console.log('Menu ouvert - Design corrigé et compact');
+      }
+      
+      // Réinitialiser après un délai plus long pour éviter les doubles clics
+      setTimeout(() => {
+        isProcessing = false;
+        console.log('isProcessing réinitialisé - clic autorisé');
+      }, 1000);
+    }
+    
+    // Attacher l'écouteur une seule fois
+    burger.addEventListener("click", burgerClickHandler);
+
+    // FERMETURE MANUELLE SEULEMENT - PAS DE FERMETURE AUTOMATIQUE
+    // document.addEventListener('click', function closeMenu(e) {
+    //   if (nav.classList.contains('open') && 
+    //       !nav.contains(e.target) && 
+    //       !burger.contains(e.target)) {
+    //     console.log('Fermeture par clic sur overlay');
+    //     nav.classList.remove('open');
+    //     burger.setAttribute('aria-expanded', 'false');
+    //     document.body.classList.remove('nav-open');
+    //     burger.style.background = ''; // Reset
+    //   }
+    // });
 
     // Amélioration de l'accessibilité : ferme le menu avec la touche 'Échap'.
     document.addEventListener('keydown', (e) => {
@@ -49,7 +152,24 @@ document.addEventListener("DOMContentLoaded", () => {
         nav.classList.remove('open');
         burger.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('nav-open');
+        
+        // Restaurer la position du scroll sans animation bizarre
+        document.body.style.transition = 'none';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.height = '';
+        
+        // Restaurer le scroll immédiatement
+        window.scrollTo(0, scrollPosition);
+        
+        // Réactiver les transitions après un court délai
+        setTimeout(() => {
+          document.body.style.transition = '';
+        }, 50);
+        
         burger.focus();
+        console.log('Menu fermé par Échap - Scroll restauré à:', scrollPosition);
       }
     }, { passive: true });
 
@@ -61,6 +181,24 @@ document.addEventListener("DOMContentLoaded", () => {
         nav.classList.remove("open");
         burger.setAttribute("aria-expanded", "false");
         document.body.classList.remove('nav-open');
+        burger.style.background = ''; // Reset
+        
+        // Restaurer la position du scroll sans animation bizarre
+        document.body.style.transition = 'none';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.height = '';
+        
+        // Restaurer le scroll immédiatement
+        window.scrollTo(0, scrollPosition);
+        
+        // Réactiver les transitions après un court délai
+        setTimeout(() => {
+          document.body.style.transition = '';
+        }, 50);
+        
+        console.log('Menu fermé par lien - Scroll restauré à:', scrollPosition);
         
         // Gère le défilement pour le lien '#top'
         const href = link.getAttribute('href') || '';
@@ -270,6 +408,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const mapContainer = document.getElementById('zone-map');
     if (!mapContainer || typeof L === 'undefined') return;
 
+    // S'assurer que le conteneur est visible et prêt
+    if (mapContainer.offsetWidth === 0 || mapContainer.offsetHeight === 0) {
+      console.log('Carte: conteneur pas encore visible, retry...');
+      setTimeout(() => initZoneMap(), 500);
+      return;
+    }
+
+    // Lazy loading de la carte avec IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadMapWhenVisible();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '100px', // Commencer à charger 100px avant que ce soit visible
+      threshold: 0.1
+    });
+
+    observer.observe(mapContainer);
+
+    const loadMapWhenVisible = () => {
+      // Ajouter un état de chargement
+      mapContainer.classList.add('map-loading');
+      console.log('Carte: début du chargement');
+    
     // Coordonnées précises de L'Isle-d'Espagnac (siège)
     const headquarters = [45.6580, 0.1920];
 
@@ -284,45 +449,72 @@ document.addEventListener("DOMContentLoaded", () => {
       keyboard: false,
       dragging: false,
       touchZoom: false,
-      attributionControl: false
+      attributionControl: false,
+      preferCanvas: true, // Optimisation performance
+      updateWhenZooming: false, // Optimisation performance
+      updateWhenIdle: true, // Optimisation performance
+      bounceAtZoomLimits: false // Optimisation performance
     });
 
-    // Fond de carte discret
+    // Fond de carte optimisé avec cache
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
       attribution: '',
       subdomains: 'abcd',
       maxZoom: 19,
-      opacity: 0.6
+      opacity: 0.6,
+      updateWhenIdle: true, // Optimisation performance
+      updateWhenZooming: false, // Optimisation performance
+      keepBuffer: 2, // Réduire le buffer pour économiser la mémoire
+      className: 'map-tiles' // Pour le style CSS
+    }).on('tileload', function() {
+      // Retirer l'état de chargement quand les tuiles commencent à charger
+      mapContainer.classList.remove('map-loading');
+      mapContainer.classList.add('map-loaded');
     }).addTo(map);
 
-    // Chargement des contours précis de la Charente depuis le fichier local
-    fetch('data/charente.geojson')
-      .then(response => {
-        if (!response.ok) throw new Error('Erreur réseau');
-        return response.json();
-      })
-      .then(data => {
-        // Ajouter les contours de la Charente avec style marron
-        // Le fichier local contient déjà uniquement la Charente
+    // Précharger le GeoJSON avec cache
+    const loadCharenteGeoJSON = async () => {
+      try {
+        // Utiliser le cache si disponible
+        const cacheKey = 'charente-geojson';
+        const cachedData = localStorage.getItem(cacheKey);
+        let data;
+        
+        if (cachedData) {
+          data = JSON.parse(cachedData);
+        } else {
+          const response = await fetch('data/charente.geojson');
+          if (!response.ok) throw new Error('Erreur réseau');
+          data = await response.json();
+          // Mettre en cache pour 24h
+          localStorage.setItem(cacheKey, JSON.stringify(data));
+        }
+        
+        // Ajouter les contours de la Charente avec style optimisé
         L.geoJSON(data, {
           style: {
             color: '#673A12',
-            weight: 3,
+            weight: 2, // Réduit pour performance
             opacity: 0.9,
             fillColor: '#A88B5E',
             fillOpacity: 0.15,
             lineCap: 'round',
             lineJoin: 'round'
-          }
+          },
+          smoothFactor: 0.5, // Optimisation performance
+          simplifyTolerance: 0.02 // Simplifier les géométries
         }).addTo(map);
         
         // Ajuster la vue sur la Charente
         const charenteLayer = L.geoJSON(data);
-        map.fitBounds(charenteLayer.getBounds(), { padding: [20, 20] });
-      })
-      .catch(error => {
-        console.warn('Impossible de charger les contours de la Charente (local):', error);
-        // Fallback avec contours approximatifs
+        map.fitBounds(charenteLayer.getBounds(), { 
+          padding: [20, 20],
+          maxZoom: 10 // Limiter le zoom pour performance
+        });
+        
+      } catch (error) {
+        console.warn('Impossible de charger les contours de la Charente:', error);
+        // Fallback avec contours simplifiés pour performance
         const charenteBounds = [
           [46.1500, 0.1833], [46.1333, 0.3667], [46.0167, 0.4500], [45.9833, 0.6333],
           [45.9500, 0.6500], [45.8667, 0.6500], [45.7833, 0.6333], [45.7000, 0.6167],
@@ -335,14 +527,23 @@ document.addEventListener("DOMContentLoaded", () => {
         
         L.polygon(charenteBounds, {
           color: '#673A12',
-          weight: 3,
+          weight: 2,
           opacity: 0.8,
           fillColor: '#A88B5E',
           fillOpacity: 0.12,
           lineCap: 'round',
           lineJoin: 'round'
         }).addTo(map);
-      });
+        
+        // Retirer l'état de chargement même avec fallback
+        mapContainer.classList.remove('map-loading');
+        mapContainer.classList.add('map-loaded');
+      }
+    };
+    
+    // Charger le GeoJSON de manière asynchrone
+    loadCharenteGeoJSON();
+    };
 
     // Marqueur siège avec animation pulse corrigée
     const hqIcon = L.divIcon({
@@ -397,22 +598,24 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Initialiser la carte quand Leaflet est chargé (lazy-loaded)
-  // Leaflet est chargé dynamiquement quand la section zone devient visible
+  // Système unifié pour éviter les conflits
   const waitForLeaflet = () => {
-    if (typeof L !== 'undefined') {
-      initZoneMap();
-    } else {
-      // Réessayer toutes les 200ms jusqu'à ce que Leaflet soit chargé
-      const checkLeaflet = setInterval(() => {
-        if (typeof L !== 'undefined') {
-          clearInterval(checkLeaflet);
-          initZoneMap();
-        }
-      }, 200);
-      
-      // Arrêter après 10 secondes si Leaflet n'est jamais chargé
-      setTimeout(() => clearInterval(checkLeaflet), 10000);
-    }
+    console.log('Carte: attente de Leaflet...');
+    
+    // Réessayer toutes les 300ms jusqu'à ce que Leaflet soit chargé
+    const checkLeaflet = setInterval(() => {
+      if (typeof L !== 'undefined') {
+        clearInterval(checkLeaflet);
+        console.log('Carte: Leaflet détecté, initialisation...');
+        initZoneMap();
+      }
+    }, 300);
+    
+    // Arrêter après 15 secondes si Leaflet n'est jamais chargé
+    setTimeout(() => {
+      clearInterval(checkLeaflet);
+      console.log('Carte: timeout - Leaflet non chargé après 15s');
+    }, 15000);
   };
   
   // Démarrer la vérification après le chargement de la page

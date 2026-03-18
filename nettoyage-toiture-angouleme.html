@@ -40,13 +40,15 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/nav.css" />
+    <link rel="stylesheet" href="assets/css/utilities.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
     <link rel="stylesheet" href="assets/css/contact.css" media="print" onload="this.media='all'" />
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     
     <!-- Font Awesome CDN complet -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVzteLpBEpUAjPA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://vprr.fr/media/favicon/favicon-96x96.png" sizes="96x96" />
@@ -65,7 +67,7 @@
         "url": "https://vprr.fr/",
         "logo": "https://vprr.fr/media/VPRR-LOGO.svg",
         "email": "villergerstephane204@gmail.com",
-        "telephone": "+33659268623",
+        "telephone": "+33545912270",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "136 Avenue de la République",
@@ -444,7 +446,7 @@
         position: absolute;
         top: var(--space-lg);
         padding: var(--space-xs) var(--space-md);
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(103, 58, 18, 0.8);
         color: white;
         font-size: 0.75rem;
         font-weight: var(--font-weight-semibold);
@@ -693,92 +695,7 @@
         margin: 0;
       }
       
-      /* Section réassurance */
-      .reassurance-grid {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-md);
-        margin-top: var(--space-2xl);
-      }
-      
-      .reassurance-item {
-        display: flex;
-        gap: var(--space-lg);
-        align-items: flex-start;
-        padding: var(--space-xl);
-        background: var(--color-white);
-        border-radius: 16px;
-        border: 2px solid var(--color-border-light);
-        box-shadow: 0 2px 12px rgba(45, 36, 30, 0.04);
-        transition: all var(--duration-normal) var(--ease-out);
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .reassurance-item::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 4px;
-        height: 100%;
-        background: linear-gradient(180deg, var(--brand-accent) 0%, var(--color-primary) 100%);
-        transform: scaleY(0);
-        transform-origin: top;
-        transition: transform var(--duration-normal) var(--ease-out);
-      }
-      
-      .reassurance-item:hover {
-        transform: translateX(8px);
-        border-color: var(--brand-accent);
-        box-shadow: 0 8px 32px rgba(168, 139, 94, 0.15);
-      }
-      
-      .reassurance-item:hover::before {
-        transform: scaleY(1);
-      }
-      
-      .reassurance-icon {
-        width: 64px;
-        height: 64px;
-        min-width: 64px;
-        background: var(--color-surface-alt);
-        border-radius: 14px;
-        display: grid;
-        place-items: center;
-        color: var(--color-primary);
-        font-size: 1.5rem;
-        flex-shrink: 0;
-        box-shadow: 0 2px 8px rgba(45, 36, 30, 0.06);
-        transition: transform var(--duration-normal) var(--ease-spring);
-        position: relative;
-        z-index: 1;
-      }
-      
-      .reassurance-item:hover .reassurance-icon {
-        background: var(--color-primary);
-        color: var(--color-white);
-        transform: scale(1.05);
-      }
-      
-      .reassurance-text {
-        position: relative;
-        z-index: 1;
-      }
-      
-      .reassurance-text h3 {
-        font-size: 1.125rem;
-        margin-bottom: var(--space-xs);
-        font-weight: var(--font-weight-semibold);
-      }
-      
-      .reassurance-text p {
-        font-size: 1.0625rem;
-        margin: 0;
-        color: var(--color-text-light);
-        line-height: 1.7;
-      }
-      
+            
       /* Zone d'intervention */
       .zone-list {
         display: flex;
@@ -807,30 +724,100 @@
         transform: translateY(-2px);
       }
       
-      /* CTA Final Compact - Glassmorphism */
+      /* CTA Final Compact - Design équilibré */
       .cta-final-compact {
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
+        gap: var(--space-2xl);
+        margin: var(--space-xl) 0;
+        padding: var(--space-2xl) var(--space-3xl);
+        background: linear-gradient(135deg, var(--color-primary) 0%, #8B5A2B 100%);
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(103, 58, 18, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .cta-final-compact > div:first-child {
+        flex: 1;
+        min-width: 300px;
+      }
+      
+      .cta-final-compact > div:last-child {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
         gap: var(--space-lg);
-        margin: var(--space-xl);
-        padding: var(--space-xl) var(--space-2xl);
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(16px);
-        border-radius: 20px;
-        border: 1px solid rgba(103, 58, 18, 0.15);
-        box-shadow: 0 4px 24px rgba(103, 58, 18, 0.1);
       }
       
       .cta-final-compact h2 {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: var(--space-xs);
+        font-size: 1.625rem;
+        font-weight: 700;
+        margin-bottom: var(--space-sm);
+        color: var(--color-white);
+        line-height: 1.2;
       }
       
       .cta-final-compact p {
         margin: 0;
+        font-size: 1.0625rem;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.4;
+      }
+      
+      .cta-final-compact .btn {
+        background: var(--color-white);
+        color: var(--color-primary);
+        border: none;
+        padding: var(--space-lg) var(--space-2xl);
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        white-space: nowrap;
+        min-width: 200px;
+      }
+      
+      .cta-final-compact .btn:hover {
+        background: rgba(255, 255, 255, 0.95);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+      
+      .cta-final-compact a[href^="tel:"] {
+        color: var(--color-white);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+        padding: var(--space-md) var(--space-lg);
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9375rem;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+      
+      .cta-final-compact a[href^="tel:"]:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-1px);
+      }
+      
+      .cta-final-compact a[href^="tel:"] span {
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        margin-right: var(--space-sm);
+      }
+      
+      .cta-final-compact a[href^="tel:"] span i {
+        color: var(--color-white);
         font-size: 1rem;
       }
     </style>
@@ -1016,8 +1003,8 @@
         <div class="container">
           <header class="section-header">
             <p class="section-eyebrow">Pourquoi nous choisir</p>
-            <h2 id="why-title">Votre spécialiste toiture à Angoulême</h2>
-            <p>Plus de 15 ans d'expérience dans l'entretien et la rénovation de toitures en Charente.</p>
+            <h2 id="why-title">Votre artisan de confiance à Angoulême</h2>
+            <p>Plus de 15 ans d'expérience au service de votre patrimoine en Charente.</p>
           </header>
 
           <div class="reassurance-grid">
@@ -1025,15 +1012,15 @@
               <div class="reassurance-icon"><i class="fa-solid fa-award" aria-hidden="true"></i></div>
               <div class="reassurance-text">
                 <h3>Artisan local certifié</h3>
-                <p>Basés à L'Isle-d'Espagnac, nous connaissons parfaitement les spécificités des toitures charentaises.</p>
+                <p>Basés à L'Isle-d'Espagnac, nous connaissons parfaitement les spécificités des bâtiments charentais.</p>
               </div>
             </div>
             
             <div class="reassurance-item">
-              <div class="reassurance-icon"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i></div>
+              <div class="reassurance-icon"><i class="fa-solid fa-file-contract" aria-hidden="true"></i></div>
               <div class="reassurance-text">
-                <h3>Devis gratuit et transparent</h3>
-                <p>Estimation détaillée sous 48h, sans frais cachés. Vous savez exactement ce que vous payez.</p>
+                <h3>Devis gratuit & sans engagement</h3>
+                <p>Recevez votre devis détaillé sous 48h. Aucune obligation, aucun frais caché.</p>
               </div>
             </div>
             
@@ -1041,15 +1028,15 @@
               <div class="reassurance-icon"><i class="fa-solid fa-certificate" aria-hidden="true"></i></div>
               <div class="reassurance-text">
                 <h3>Garantie décennale</h3>
-                <p>Tous nos travaux sont couverts par une assurance décennale pour votre tranquillité d'esprit.</p>
+                <p>Tous nos travaux sont couverts par une assurance décennale et une RC professionnelle.</p>
               </div>
             </div>
             
             <div class="reassurance-item">
               <div class="reassurance-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></div>
               <div class="reassurance-text">
-                <h3>Avis clients 5/5</h3>
-                <p>Des dizaines de clients satisfaits à Angoulême et en Charente. Consultez nos avis Google.</p>
+                <h3>Clients satisfaits</h3>
+                <p>Note moyenne de 5/5 sur Google. Découvrez les avis de nos clients charentais.</p>
               </div>
             </div>
             
@@ -1057,7 +1044,7 @@
               <div class="reassurance-icon"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div>
               <div class="reassurance-text">
                 <h3>Accompagnement administratif</h3>
-                <p>Nous vous aidons dans vos démarches (déclaration préalable, aides financières si éligible).</p>
+                <p>Nous vous aidons dans vos démarches de déclaration préalable de travaux si nécessaire.</p>
               </div>
             </div>
             
@@ -1215,20 +1202,20 @@
         </div>
       </section>
 
-      <!-- CTA Final Compact - Style Glassmorphism Clair -->
-      <div class="cta-final-compact" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(103, 58, 18, 0.15); box-shadow: 0 4px 24px rgba(103, 58, 18, 0.1);">
+      <!-- CTA Final Moderne -->
+      <div class="cta-final-modern">
         <div>
-          <h2 style="color: var(--color-text);">Prêt à protéger votre toiture ?</h2>
-          <p style="color: var(--color-text-light);">Devis gratuit sous 48h · Sans engagement</p>
+          <h2>Prêt à protéger votre toiture ?</h2>
+          <p>Devis gratuit sous 48h · Sans engagement</p>
         </div>
-        <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center;">
-          <a href="#contact" class="btn btn-primary" style="padding: 0.875rem 1.75rem; white-space: nowrap;">
-            <i class="fa-solid fa-calculator" aria-hidden="true" style="margin-right: 0.5rem;"></i>
+        <div>
+          <a href="#contact" class="btn-primary">
+            <i class="fa-solid fa-calculator" aria-hidden="true"></i>
             Estimer mon projet
           </a>
-          <a href="tel:+33545912270" style="display: flex; align-items: center; gap: var(--space-sm); color: var(--color-primary); text-decoration: none; font-weight: 500; white-space: nowrap; padding: 0.5rem;">
-            <span style="width: 40px; height: 40px; background: var(--color-surface-alt); border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--color-border); box-shadow: 0 2px 8px rgba(45, 36, 30, 0.06);">
-              <i class="fa-solid fa-phone" aria-hidden="true" style="color: var(--color-primary);"></i>
+          <a href="tel:+33545912270" class="btn-secondary">
+            <span class="icon-wrapper">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
             </span>
             05 45 91 22 70
           </a>
@@ -1357,7 +1344,7 @@
             <!-- Question 1 -->
             <details class="faq-item" style="background: var(--color-white); border-radius: 16px; margin-bottom: var(--space-md); border: 2px solid var(--color-border-light); box-shadow: 0 2px 12px rgba(45, 36, 30, 0.04); overflow: hidden;">
               <summary class="faq-question" style="padding: var(--space-xl); cursor: pointer; font-weight: var(--font-weight-semibold); font-size: 1.125rem; color: var(--color-text); display: flex; align-items: center; gap: var(--space-md); list-style: none;">
-                <span style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--color-primary) 0%, var(--brand-accent) 100%); border-radius: 10px; display: grid; place-items: center; color: white; font-size: 1rem; flex-shrink: 0;">
+                <span style="width: 40px; height: 40px; background: var(--color-primary); border-radius: 10px; display: grid; place-items: center; color: white; font-size: 1rem; flex-shrink: 0;">
                   <i class="fa-solid fa-tag" aria-hidden="true"></i>
                 </span>
                 <span>Quel est le prix moyen d'un nettoyage de toiture au m² à Angoulême ?</span>
@@ -1376,7 +1363,7 @@
             <!-- Question 2 -->
             <details class="faq-item" style="background: var(--color-white); border-radius: 16px; margin-bottom: var(--space-md); border: 2px solid var(--color-border-light); box-shadow: 0 2px 12px rgba(45, 36, 30, 0.04); overflow: hidden;">
               <summary class="faq-question" style="padding: var(--space-xl); cursor: pointer; font-weight: var(--font-weight-semibold); font-size: 1.125rem; color: var(--color-text); display: flex; align-items: center; gap: var(--space-md); list-style: none;">
-                <span style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--color-primary) 0%, var(--brand-accent) 100%); border-radius: 10px; display: grid; place-items: center; color: white; font-size: 1rem; flex-shrink: 0;">
+                <span style="width: 40px; height: 40px; background: var(--color-primary); border-radius: 10px; display: grid; place-items: center; color: white; font-size: 1rem; flex-shrink: 0;">
                   <i class="fa-solid fa-file-signature" aria-hidden="true"></i>
                 </span>
                 <span>Faites-vous des devis gratuits sur Angoulême et alentours ?</span>
@@ -1395,7 +1382,7 @@
             <!-- Question 3 -->
             <details class="faq-item" style="background: var(--color-white); border-radius: 16px; margin-bottom: var(--space-md); border: 2px solid var(--color-border-light); box-shadow: 0 2px 12px rgba(45, 36, 30, 0.04); overflow: hidden;">
               <summary class="faq-question" style="padding: var(--space-xl); cursor: pointer; font-weight: var(--font-weight-semibold); font-size: 1.125rem; color: var(--color-text); display: flex; align-items: center; gap: var(--space-md); list-style: none;">
-                <span style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--color-primary) 0%, var(--brand-accent) 100%); border-radius: 10px; display: grid; place-items: center; color: white; font-size: 1rem; flex-shrink: 0;">
+                <span style="width: 40px; height: 40px; background: var(--color-primary); border-radius: 10px; display: grid; place-items: center; color: white; font-size: 1rem; flex-shrink: 0;">
                   <i class="fa-solid fa-clock" aria-hidden="true"></i>
                 </span>
                 <span>Combien de temps dure l'intervention de nettoyage de toiture ?</span>
@@ -1419,7 +1406,7 @@
             <!-- Question 4 -->
             <details class="faq-item" style="background: var(--color-white); border-radius: 16px; margin-bottom: var(--space-md); border: 2px solid var(--color-border-light); box-shadow: 0 2px 12px rgba(45, 36, 30, 0.04); overflow: hidden;">
               <summary class="faq-question" style="padding: var(--space-xl); cursor: pointer; font-weight: var(--font-weight-semibold); font-size: 1.125rem; color: var(--color-text); display: flex; align-items: center; gap: var(--space-md); list-style: none;">
-                <span style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--color-primary) 0%, var(--brand-accent) 100%); border-radius: 10px; display: grid; place-items: center; color: white; font-size: 1rem; flex-shrink: 0;">
+                <span style="width: 40px; height: 40px; background: var(--color-primary); border-radius: 10px; display: grid; place-items: center; color: white; font-size: 1rem; flex-shrink: 0;">
                   <i class="fa-solid fa-receipt" aria-hidden="true"></i>
                 </span>
                 <span>Qu'est-ce qui est inclus dans le devis ? Y a-t-il des frais cachés ?</span>
@@ -1458,37 +1445,8 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer" aria-label="Pied de page">
-      <div class="container footer-grid">
-        <div class="footer-col">
-          <div class="logo">VillégerPeintureRavalRénovation</div>
-          <div class="copyright">&copy; <span id="current-year">2025</span> VillégerPeintureRavalRénovation. Tous droits réservés.</div>
-        </div>
-        <div class="footer-col">
-          <h3>Liens rapides</h3>
-          <ul class="footer-links">
-            <li><a href="index.html#home">Accueil</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#galerie">Galerie</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-            <li><a href="mentions-legales.html">Mentions légales</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Coordonnées</h3>
-          <ul class="footer-contacts">
-            <li>Tél : <a href="tel:+33545912270">05 45 91 22 70</a></li>
-            <li>Email : <a href="mailto:villergerstephane204@gmail.com">villergerstephane204@gmail.com</a></li>
-          </ul>
-          <div class="socials" aria-label="Réseaux sociaux">
-            <a href="https://www.instagram.com/peinture_raval_renovation/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-badge">
-              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <!-- Footer sera inclus dynamiquement -->
+    <script src="assets/js/footer.js"></script>
 
   </body>
 </html>

@@ -74,7 +74,7 @@
     <link rel="stylesheet" href="assets/css/contact.css" media="print" onload="this.media='all'" />
     <link rel="stylesheet" href="assets/css/cookies.css" media="print" onload="this.media='all'" />
     <link rel="stylesheet" href="assets/css/faq.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="assets/css/zone.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="assets/css/zone.css" />
     
     <!-- Google Fonts avec display=swap pour éviter FOIT -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
@@ -235,7 +235,7 @@
         "logo": "https://vprr.fr/media/VPRR-LOGO.svg",
         "image": "https://vprr.fr/data/hero.webp",
         "email": "villergerstephane204@gmail.com",
-        "telephone": "+33659268623",
+        "telephone": "+33545912270",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "136 Avenue de la République",
@@ -368,10 +368,11 @@
     <script defer src="assets/js/performance.js"></script>
     <script defer src="assets/js/main.js"></script>
     
-    <!-- JavaScript non-critique (chargé après) -->
-    <script defer src="assets/js/config-loader.js"></script>
-    <script defer src="assets/js/form-security.js"></script>
-    <script defer src="assets/js/cookies.js"></script>
+    <!-- Scripts -->
+  <script src="assets/js/config-loader.js"></script>
+  <script src="assets/js/form-security.js"></script>
+  <script src="assets/js/cookies.js"></script>
+  <script src="assets/js/blog-home.js"></script>
     
     <!-- Scripts tiers - Chargés en lazy-load quand les sections deviennent visibles -->
     <script>
@@ -549,22 +550,70 @@
           </div>
           
           <!-- CTA vers les pages service détaillées -->
-          <div style="margin-top: var(--space-3xl); text-align: center; padding: var(--space-2xl); background: linear-gradient(135deg, #FBF9F6 0%, var(--color-surface-alt) 100%); border-radius: 24px;">
-            <h3 style="font-size: 1.5rem; margin-bottom: var(--space-md); color: var(--color-text);">Découvrez nos services en détail</h3>
-            <p style="color: var(--color-text-light); margin-bottom: var(--space-xl); max-width: 600px; margin-left: auto; margin-right: auto;">Consultez nos pages dédiées pour en savoir plus sur chaque prestation et obtenir un devis personnalisé.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center;">
-              <a href="nettoyage-facade-angouleme.html" class="btn btn-primary">
-                <i class="fa-solid fa-spray-can-sparkles" aria-hidden="true"></i> Nettoyage de Façade
-              </a>
-              <a href="nettoyage-toiture-angouleme.html" class="btn btn-primary">
-                <i class="fa-solid fa-house-chimney" aria-hidden="true"></i> Nettoyage de Toiture
-              </a>
-              <a href="ravalement-facade-angouleme.html" class="btn btn-secondary">
-                <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Ravalement de Façade
-              </a>
-              <a href="peinture-exterieure-charente.html" class="btn btn-secondary">
-                <i class="fa-solid fa-palette" aria-hidden="true"></i> Peinture Extérieure
-              </a>
+          <div class="services-cta-showcase">
+            <div class="services-cta-content">
+              <div class="services-cta-header">
+                <div class="services-cta-badge">
+                  <i class="fa-solid fa-star"></i>
+                  <span>Nos spécialités</span>
+                </div>
+                <h3 class="services-cta-title">Découvrez nos services en détail</h3>
+                <p class="services-cta-description">Consultez nos pages dédiées pour en savoir plus sur chaque prestation et obtenir un devis personnalisé.</p>
+              </div>
+              
+              <div class="services-cta-grid">
+                <a href="nettoyage-facade-angouleme.html" class="service-cta-card primary">
+                  <div class="service-cta-icon">
+                    <i class="fa-solid fa-spray-can-sparkles"></i>
+                  </div>
+                  <div class="service-cta-text">
+                    <h4>Nettoyage de Façade</h4>
+                    <span>Hydro-gommage expert</span>
+                  </div>
+                  <div class="service-cta-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </div>
+                </a>
+                
+                <a href="nettoyage-toiture-angouleme.html" class="service-cta-card primary">
+                  <div class="service-cta-icon">
+                    <i class="fa-solid fa-house-chimney"></i>
+                  </div>
+                  <div class="service-cta-text">
+                    <h4>Nettoyage de Toiture</h4>
+                    <span>Démoussage professionnel</span>
+                  </div>
+                  <div class="service-cta-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </div>
+                </a>
+                
+                <a href="ravalement-facade-angouleme.html" class="service-cta-card secondary">
+                  <div class="service-cta-icon">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                  </div>
+                  <div class="service-cta-text">
+                    <h4>Ravalement de Façade</h4>
+                    <span>Rénovation complète</span>
+                  </div>
+                  <div class="service-cta-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </div>
+                </a>
+                
+                <a href="peinture-exterieure-charente.html" class="service-cta-card secondary">
+                  <div class="service-cta-icon">
+                    <i class="fa-solid fa-palette"></i>
+                  </div>
+                  <div class="service-cta-text">
+                    <h4>Peinture Extérieure</h4>
+                    <span>Finitions premium</span>
+                  </div>
+                  <div class="service-cta-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -585,50 +634,55 @@
       </section>
 
       <!-- Section Blog : Derniers articles -->
-      <section id="blog" class="section" aria-labelledby="blog-title">
+      <section id="blog" class="section" aria-labelledby="blog-title" style="background: linear-gradient(180deg, #FAFAF9 0%, #FFFFFF 100%); padding: var(--space-3xl) 0;">
         <div class="container">
-          <header class="section-header">
-            <p class="section-eyebrow">Blog</p>
-            <h2 id="blog-title">Guides & Conseils</h2>
-            <p>Conseils pratiques et guides pour vos projets de rénovation, peinture et ravalement.</p>
+          <header class="section-header" style="max-width: 800px; margin: 0 auto var(--space-2xl); text-align: center;">
+            <p class="section-eyebrow" style="color: #673A12; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: var(--space-sm);">Blog</p>
+            <h2 id="blog-title" style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; color: #2D241E; margin-bottom: var(--space-md); line-height: 1.2;">Guides & Conseils</h2>
+            <p style="font-size: 1.125rem; color: #6B5D52; line-height: 1.6; max-width: 600px; margin: 0 auto;">Conseils d'experts et guides pratiques pour réussir vos projets de rénovation, peinture et ravalement.</p>
           </header>
           
-          <div class="blog-preview-grid">
+          <div class="blog-preview-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-2xl);">
             <!-- Article 1 -->
-            <article class="blog-preview-card">
-              <a href="blog/choisir-peinture-exterieure.html" class="blog-preview-link">
-                <div class="blog-preview-image">
-                  <img src="assets/img/blog/peinture-exterieure.jpg" alt="Choisir sa peinture extérieure" loading="lazy">
+            <article class="blog-preview-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(45, 36, 30, 0.08); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(103, 58, 18, 0.08);">
+              <a href="blog/choisir-peinture-exterieure.html" class="blog-preview-link" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+                <div class="blog-preview-image" style="position: relative; width: 100%; padding-top: 56.25%; overflow: hidden; background: #F5F2EE;">
+                  <img src="assets/img/blog/peinture-exterieure.jpg" alt="Choisir sa peinture extérieure" loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+                  <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: #673A12; letter-spacing: 0.02em;">Peinture</div>
                 </div>
-                <div class="blog-preview-content">
-                  <span class="blog-preview-tag">Peinture</span>
-                  <h3>Comment choisir sa peinture extérieure ?</h3>
-                  <p>Guide complet pour sélectionner la peinture adaptée à votre façade : types, finitions et budget.</p>
-                  <span class="blog-preview-meta">5 min de lecture</span>
+                <div class="blog-preview-content" style="padding: var(--space-lg); flex: 1; display: flex; flex-direction: column;">
+                  <h3 style="font-size: 1.25rem; font-weight: 600; color: #2D241E; margin-bottom: var(--space-sm); line-height: 1.4; transition: color 0.2s ease;">Comment choisir sa peinture extérieure ?</h3>
+                  <p style="font-size: 0.9375rem; color: #6B5D52; line-height: 1.6; margin-bottom: var(--space-md); flex: 1;">Guide complet pour sélectionner la peinture adaptée à votre façade : types, finitions et budget.</p>
+                  <div style="display: flex; align-items: center; gap: var(--space-sm); color: #8B7355; font-size: 0.875rem;">
+                    <i class="fa-regular fa-clock" aria-hidden="true" style="font-size: 0.875rem;"></i>
+                    <span>5 min de lecture</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true" style="margin-left: auto; font-size: 0.875rem; transition: transform 0.2s ease;"></i>
+                  </div>
                 </div>
               </a>
             </article>
             
-            <!-- Article 2 (placeholder) -->
-            <article class="blog-preview-card">
-              <a href="blog/" class="blog-preview-link">
-                <div class="blog-preview-image" style="background: linear-gradient(135deg, #673A12 0%, #8B5A2B 100%);">
-                  <i class="fa-solid fa-helmet-safety" style="font-size: 3rem; color: white; display: flex; align-items: center; justify-content: center; height: 100%;"></i>
+            <!-- Article 2 (CTA vers tous les articles) -->
+            <article class="blog-preview-card" style="background: linear-gradient(135deg, #673A12 0%, #8B5A2B 100%); border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(103, 58, 18, 0.25); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative;">
+              <a href="blog/" class="blog-preview-link" style="text-decoration: none; color: white; display: flex; flex-direction: column; height: 100%; padding: var(--space-xl); justify-content: center; align-items: center; text-align: center; min-height: 360px;">
+                <div style="width: 80px; height: 80px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-lg); transition: transform 0.3s ease;">
+                  <i class="fa-solid fa-book-open" style="font-size: 2rem; color: white;"></i>
                 </div>
-                <div class="blog-preview-content">
-                  <span class="blog-preview-tag">Conseils</span>
-                  <h3>Tous nos articles</h3>
-                  <p>Découvrez tous nos guides et conseils pour réussir vos projets de rénovation.</p>
-                  <span class="blog-preview-meta">Voir la liste →</span>
+                <h3 style="font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: var(--space-md); line-height: 1.3;">Explorez tous nos articles</h3>
+                <p style="font-size: 1rem; color: rgba(255, 255, 255, 0.9); line-height: 1.6; margin-bottom: var(--space-lg); max-width: 280px;">Découvrez notre bibliothèque complète de guides et conseils pour vos projets de rénovation.</p>
+                <div style="display: inline-flex; align-items: center; gap: var(--space-sm); padding: 12px 24px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border-radius: 12px; font-weight: 600; font-size: 0.9375rem; transition: all 0.2s ease;">
+                  <span>Voir le blog</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true" style="font-size: 0.875rem;"></i>
                 </div>
               </a>
             </article>
           </div>
           
-          <div style="text-align: center; margin-top: var(--space-xl);">
-            <a href="blog/" class="btn btn-primary">
-              <i class="fa-solid fa-book-open" aria-hidden="true"></i>
-              Voir tous les articles
+          <div style="text-align: center; padding-top: var(--space-lg); border-top: 1px solid rgba(103, 58, 18, 0.1);">
+            <p style="color: #8B7355; font-size: 0.9375rem; margin-bottom: var(--space-md);">Plus de guides à venir chaque semaine</p>
+            <a href="blog/" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: var(--space-sm); padding: 14px 28px; font-size: 1rem; font-weight: 600; border-radius: 12px; transition: all 0.2s ease;">
+              <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+              Tous les articles
             </a>
           </div>
         </div>
@@ -837,65 +891,7 @@
 
     </main>
 
-        <!-- Pied de page du site -->
-    <footer class="site-footer" aria-label="Pied de page">
-      <div class="container footer-grid">
-        <div class="footer-col">
-          <div class="logo">VillégerPeintureRavalRénovation</div>
-          <div class="copyright"> <span id="current-year">2025</span> VillégerPeintureRavalRénovation.<br>Tous droits réservés.</div>
-        </div>
-        <div class="footer-col">
-          <h3>Liens rapides</h3>
-          <ul class="footer-links">
-            <li><a href="#home">Accueil</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#galerie">Galerie</a></li>
-            <li><a href="#zone">Zone d'intervention</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="mentions-legales.html">Mentions légales</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Coordonnées</h3>
-          <ul class="footer-contacts">
-            <li>Téléphone : <a href="tel:+33545912270">05 45 91 22 70</a></li>
-            <li>Email : <a href="mailto:villergerstephane204@gmail.com">villergerstephane204@gmail.com</a></li>
-          </ul>
-          <div class="socials" aria-label="Réseaux sociaux">
-            <a href="https://www.instagram.com/peinture_raval_renovation/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-badge"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Bannière de consentement aux cookies -->
-    <div id="cookie-banner">
-        <div class="cookie-banner-content">
-            <p>Ce site utilise des cookies pour améliorer votre expérience. En continuant, vous acceptez notre utilisation des cookies.</p>
-            <div class="cookie-banner-actions">
-                <button id="accept-cookies" class="btn btn-primary">Accepter</button>
-                <button id="reject-cookies" class="btn btn-secondary">Refuser</button>
-                <button id="cookie-settings" class="btn btn-secondary">Paramètres</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modale de paramètres des cookies -->
-    <div id="cookie-settings-modal">
-        <div class="cookie-modal-content">
-            <h3>Paramètres des cookies</h3>
-            <p>Choisissez les types de cookies que vous acceptez.</p>
-            <div class="cookie-option">
-                <input type="checkbox" id="necessary-cookies" checked disabled>
-                <label for="necessary-cookies">Cookies strictement nécessaires</label>
-            </div>
-            <div class="cookie-option">
-                <input type="checkbox" id="analytics-cookies" checked>
-                <label for="analytics-cookies">Cookies d'analyse</label>
-            </div>
-            <button id="save-cookie-settings" class="btn btn-primary">Enregistrer</button>
-        </div>
-    </div>
+        <!-- Footer sera inclus dynamiquement -->
+    <script src="assets/js/footer.js"></script>
   </body>
 </html>
