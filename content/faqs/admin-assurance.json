@@ -1,7 +1,7 @@
 {
-  "published": true,
-  "category": "Administratif & sécurité",
-  "question": "Quelle assurance couvre vos opérations drone ?",
-  "slug": "admin-assurance",
-  "answer": "<p>Nous disposons d'une assurance responsabilité civile professionnelle spécifique aux opérations aériennes, couvrant les dommages matériels et corporels jusqu'à 1M€. Cette assurance est obligatoire pour les opérations commerciales et inclut la couverture des équipements, la responsabilité du télépilote, et les garanties post-vol.</p>"
+    "published":  true,
+    "category":  "Administratif & sécurité",
+    "question":  "Êtes-vous couverts par une assurance pour les vols drone ?",
+    "slug":  "admin-assurance",
+    "answer":  "<p>Oui, c'est une obligation légale et une évidence professionnelle. <strong>Eagle Production à Angoulême</strong> dispose d'une <strong>assurance responsabilité civile professionnelle drone</strong> spécifique, obligatoire en France pour toute opération commerciale de télépilotage. Cette assurance couvre les dommages matériels et corporels qui pourraient survenir lors d'une mission — que ce soit sur un <strong>chantier BTP en Charente</strong>, lors d'une <strong>prise de vue immobilière à Angoulême</strong>, ou pendant un <strong>événement sportif ou festif en Nouvelle-Aquitaine</strong>.</p><p>Concrètement pour vous en tant que client : vous n'avez aucune responsabilité à engager pour les incidents liés au drone durant la mission. Nos garanties couvrent l'intégralité des dommages aux tiers et aux biens, y compris dans les zones urbaines du centre-ville d'<strong>Angoulême</strong> ou à proximité d'infrastructures. Sur demande, nous pouvons vous fournir une <strong>attestation d'assurance</strong> avant toute intervention — document souvent requis par les maîtres d'ouvrage, les promoteurs immobiliers et les organisateurs d'événements professionnels.</p><p>Cette couverture, combinée à nos certifications DGAC, fait d'Eagle Production un prestataire <strong>drone sérieux et fiable en Charente</strong> que vous pouvez mandater en toute sérénité, y compris dans le cadre de marchés publics ou de contrats avec des assureurs.</p>"
 }

@@ -1,7 +1,7 @@
 {
-  "published": true,
-  "category": "Administratif & sécurité",
-  "question": "Comment procédez-vous en cas d'urgence ou d'incident ?",
-  "slug": "admin-urgence",
-  "answer": "<p>Nous suivons une procédure d'urgence stricte : atterrissage immédiat en zone sécurisée, évaluation de la situation, notification des autorités si nécessaire, et rapport d'incident complet. Nos pilotes sont formés aux procédures d'urgence et disposent d'équipements de sécurité (gilets, cônes, trousses de premiers secours) pour chaque mission.</p>"
+    "published":  true,
+    "category":  "Administratif & sécurité",
+    "question":  "Pouvez-vous intervenir en urgence pour une mission drone ?",
+    "slug":  "admin-urgence",
+    "answer":  "<p>Oui, <strong>Eagle Production à Angoulême</strong> propose un <strong>service d'intervention urgente</strong> pour les missions qui ne peuvent pas attendre. Que ce soit pour un <strong>bien immobilier à mettre en vente immédiatement en Charente</strong>, un <strong>incident de chantier nécessitant une inspection drone rapide</strong>, ou un <strong>événement dont la date a été avancée en Nouvelle-Aquitaine</strong>, nous mobilisons nos équipes dans les meilleurs délais possibles.</p><p>Notre capacité d'intervention en urgence sur <strong>Angoulême et le Grand Angoulême</strong> : 24 à 48 heures en semaine pour les missions ne nécessitant pas d'autorisation spéciale, sous réserve de conditions météo favorables. Pour les missions nécessitant des démarches administratives (zones contrôlées, autorisations préfectorales), le délai incompressible est de 48 à 72 heures même en urgence — la réglementation DGAC ne permet pas de raccourcir ces délais sans risque juridique.</p><p>Une intervention urgente peut entraîner une majoration tarifaire selon les contraintes de planning et de déplacement. Nous vous communiquerons cette information clairement lors de votre appel, sans surprise. Pour toute demande urgente, <strong>appelez-nous directement</strong> au lieu d'utiliser le formulaire web : c'est le moyen le plus rapide d'évaluer notre disponibilité et de planifier votre mission drone en <strong>Charente</strong> dans les meilleurs délais.</p>"
 }

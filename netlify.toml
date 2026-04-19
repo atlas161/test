@@ -1,11 +1,8 @@
-# Configuration Netlify optimisée pour Eagle Production
+# Configuration Netlify - Eagle Production
 
 [build]
-  # Commande de build unique qui fait tout
   command = "npm run build"
-  # Dossier de sortie
   publish = "dist"
-  # Timeout augmenté pour les builds SEO
   timeout = "600s"
 
 [build.environment]
@@ -60,36 +57,31 @@
     Cache-Control = "public, max-age=86400, must-revalidate"
     Content-Type = "application/json"
 
-# Redirections SEO
+# Redirection non-www vers www (cohérent avec canonical https://www.eagle-prod.com)
 [[redirects]]
-  from = "/blog/*"
-  to = "/blog/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/faq/*"
-  to = "/faq/:splat"
-  status = 200
-
-# Redirection www vers non-www (SEO)
-[[redirects]]
-  from = "https://www.eagle-prod.com"
-  to = "https://eagle-prod.com"
+  from = "https://eagle-prod.com/*"
+  to = "https://www.eagle-prod.com/:splat"
   status = 301
   force = true
 
-# Redirection HTTP vers HTTPS
+# Redirection HTTP vers HTTPS www
 [[redirects]]
-  from = "http://eagle-prod.com"
-  to = "https://eagle-prod.com"
+  from = "http://eagle-prod.com/*"
+  to = "https://www.eagle-prod.com/:splat"
   status = 301
   force = true
 
-# Pages d'erreur personnalisées
+[[redirects]]
+  from = "http://www.eagle-prod.com/*"
+  to = "https://www.eagle-prod.com/:splat"
+  status = 301
+  force = true
+
+# SPA fallback — doit être en DERNIER
 [[redirects]]
   from = "/*"
-  to = "/404.html"
-  status = 404
+  to = "/index.html"
+  status = 200
 
 # Compression Brotli
 [build.processing]

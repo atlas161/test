@@ -1,7 +1,7 @@
 {
-  "published": true,
-  "category": "Drone",
-  "question": "Quelles sont les contraintes météo pour un tournage drone ?",
-  "slug": "drone-meteo",
-  "answer": "<p>Les vols dépendent du vent, de la pluie et de la visibilité. En cas de météo défavorable, la mission est reportée à une date ultérieure. Un créneau météo et un plan de repli sont prévus pour éviter les déplacements inutiles.</p>"
+    "published":  true,
+    "category":  "Drone",
+    "question":  "Quelles sont les contraintes météo pour un tournage drone ?",
+    "slug":  "drone-meteo",
+    "answer":  "<p>En <strong>Charente et Nouvelle-Aquitaine</strong>, la météo est globalement favorable aux vols drone une grande partie de l'année, mais certaines conditions rendent le vol impossible ou déconseillé. Chez <strong>Eagle Production</strong>, nous ne décollons pas par <strong>vent supérieur à 40 km/h en rafale</strong>, sous la pluie, en cas de brouillard dense réduisant la visibilité sous 500 mètres, ou lors d'orages électriques — pour la sécurité du matériel, des personnes à proximité et la qualité des images.</p><p>Notre processus pour chaque mission drone à Angoulême : nous surveillons les prévisions météo sur plusieurs applications professionnelles (Windy, Météo-France Aviation) dans les 72h précédant le vol, et nous restons en contact avec vous la veille pour confirmer ou reporter. En cas de conditions défavorables le jour J, la mission est <strong>reportée sans frais supplémentaires</strong> à une date qui vous convient. Nous prévoyons systématiquement un plan de repli (créneau alternatif dans la semaine) pour éviter les délais trop longs sur vos projets immobiliers ou de chantier.</p><p>Bonne nouvelle : <strong>Angoulême et la Charente bénéficient d'environ 2 000 heures d'ensoleillement par an</strong>, ce qui offre de nombreuses fenêtres de vol optimales, notamment en heures dorées (golden hour) — idéales pour des prises de vue aériennes époustouflantes sur vos biens immobiliers ou vos événements.</p>"
 }

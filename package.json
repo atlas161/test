@@ -5,14 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node build-dynamic-seo.js && node build-blog-faq-pages.js && node enhance-services-seo.js && node build-static-optimized.js && node final-optimizations.js",
-    "build:static": "node build-static-optimized.js && node build-dynamic-seo.js && node build-blog-faq-pages.js && node enhance-services-seo.js",
-    "build:seo": "npm run build && node build-multi-pages.js",
-    "preview": "vite preview",
-    "seo:generate": "node build-dynamic-seo.js",
-    "seo:blog-faq": "node build-blog-faq-pages.js",
-    "seo:services": "node enhance-services-seo.js",
-    "health": "node -e \"import('./final-optimizations.js').then(m => m.generateHealthReport())\""
+    "build": "node build.js",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",

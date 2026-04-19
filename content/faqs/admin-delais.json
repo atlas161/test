@@ -1,7 +1,7 @@
 {
-  "published": true,
-  "category": "Administratif & sécurité",
-  "question": "Faut-il des autorisations pour voler en ville ?",
-  "slug": "admin-delais",
-  "answer": "<p>Selon la zone, une étude est menée et des démarches peuvent être nécessaires. Nous anticipons les délais et validons les contraintes (hauteurs, périmètres, zones sensibles) avant la mission.</p>"
+    "published":  true,
+    "category":  "Administratif & sécurité",
+    "question":  "Quels sont vos délais d'intervention sur Angoulême et en Charente ?",
+    "slug":  "admin-delais",
+    "answer":  "<p>Chez <strong>Eagle Production à Angoulême</strong>, nous nous engageons sur des délais d'intervention adaptés à vos contraintes. Pour une <strong>mission drone standard à Angoulême ou dans le Grand Angoulême</strong>, nous pouvons généralement intervenir dans un délai de <strong>48 à 72 heures</strong> selon nos disponibilités et les conditions météo. Pour les projets en <strong>Charente (16)</strong> hors agglomération angouloumousine, comptez 3 à 5 jours ouvrés pour l'organisation logistique et les vérifications réglementaires (espaces aériens, NOTAM).</p><p>Pour les interventions plus lointaines en <strong>Nouvelle-Aquitaine</strong> (Charente-Maritime, Gironde, Dordogne, Vienne), nous planifions généralement 5 à 7 jours à l'avance pour optimiser les déplacements et garantir des créneaux météo favorables. Les <strong>déplacements en Charente sont inclus</strong> dans nos tarifs ; au-delà, des frais de déplacement s'appliquent selon la distance depuis Angoulême.</p><p>Pour les projets urgents — <strong>événement imminent, tournage de dernière minute, inspection d'urgence</strong> — nous faisons notre maximum pour intervenir sous 24 heures sur Angoulême et les communes voisines (Soyaux, L'Isle-d'Espagnac, Gond-Pontouvre, La Couronne, Champniers). Contactez-nous directement par téléphone pour les demandes urgentes : nous répondons en général dans l'heure en heures ouvrées.</p>"
 }

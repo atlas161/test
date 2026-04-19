@@ -1,7 +1,7 @@
 {
-  "published": true,
-  "category": "Drone",
-  "question": "Quelles sont vos qualifications et certifications ?",
-  "slug": "drone-formation",
-  "answer": "<p>Nos pilotes sont certifiés AESA (Agence de l'Union Européenne pour la Sécurité Aérienne) et possèdent les autorisations requises pour les opérations professionnelles. Nous maintenons nos compétences à jour avec des formations continues en navigation aérienne, gestion des risques, et nouvelles réglementations européennes.</p>"
+    "published":  true,
+    "category":  "Drone",
+    "question":  "Quelles sont vos qualifications et certifications ?",
+    "slug":  "drone-formation",
+    "answer":  "<p>Paul Bardin, fondateur d'<strong>Eagle Production à Angoulême</strong>, est <strong>télépilote certifié DGAC</strong> avec les qualifications nécessaires pour opérer en catégorie spécifique, scénarios <strong>STS01 et STS02</strong>. Ces certifications délivrées par l'Agence de l'Union Européenne pour la Sécurité Aérienne (AESA) sont les plus exigeantes pour les opérations drone commerciales en France : elles couvrent les vols au-dessus de rassemblements de personnes, en zones urbaines denses comme le centre d'<strong>Angoulême</strong>, et en proximité d'infrastructures sensibles.</p><p>Nos compétences sont maintenues à jour via des <strong>formations continues</strong> en réglementation aérienne, gestion des risques terrain, et nouvelles technologies de captation. Nous suivons régulièrement les évolutions du cadre légal DGAC — notamment les révisions de scénarios et les nouvelles exigences pour les drones de plus de 900g en zone peuplée — pour que chaque mission en <strong>Charente et Nouvelle-Aquitaine</strong> soit réalisée dans le respect total des lois en vigueur.</p><p>En pratique, cela signifie pour vous : <strong>zéro surprise administrative</strong>, une assurance RC professionnelle drone valide, des autorisations en ordre, et la tranquillité d'un prestataire qui gère l'intégralité des démarches avant d'arriver sur site.</p>"
 }

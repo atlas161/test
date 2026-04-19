@@ -1,7 +1,7 @@
 {
-  "published": true,
-  "category": "Drone",
-  "question": "Quelles sont les limitations techniques des drones ?",
-  "slug": "drone-technique",
-  "answer": "<p>Les principales limitations sont : distance maximale 500m (portée visuelle), altitude maximale 120m, résistance au vent jusqu'à 25 km/h, autonomie 25-30 minutes par batterie, et sensibilité aux précipitations. Nous adaptons toujours nos missions à ces contraintes et disposons d'équipements de rechange pour garantir les opérations.</p>"
+    "published":  true,
+    "category":  "Drone",
+    "question":  "Quelles sont les limitations techniques des drones ?",
+    "slug":  "drone-technique",
+    "answer":  "<p>Les drones professionnels utilisés par <strong>Eagle Production à Angoulême</strong> sont soumis à des contraintes techniques que nous gérons de manière proactive pour garantir la qualité de chaque mission. L'<strong>altitude maximale de vol est de 120 mètres</strong> au-dessus du point de décollage en règle générale, sauf autorisation spécifique — largement suffisante pour les vues panoramiques sur Angoulême, les suivis de chantier BTP en Charente ou les prises de vue immobilières.</p><p>L'<strong>autonomie de vol est de 25 à 35 minutes par batterie</strong> selon les conditions de vent et la température. Nous intervenons toujours avec plusieurs batteries de rechange pour assurer la continuité des missions longues. La <strong>portée de contrôle</strong> respecte la réglementation de vol à vue (VLOS) : le télépilote maintient un contact visuel direct avec le drone à tout moment, ce qui est la règle standard pour les opérations commerciales en <strong>Nouvelle-Aquitaine</strong>.</p><p>En conditions de vent fort (au-delà de 40 km/h en rafale), de brouillard ou de pluie, nous reportons la mission. Ces contraintes sont intégrées dès la planification : nous choisissons les créneaux horaires optimaux (souvent tôt le matin ou en fin d'après-midi pour les conditions météo et la qualité de lumière) pour minimiser les risques de report sur vos projets <strong>d'inspection, d'immobilier ou d'événementiel en Charente</strong>.</p>"
 }

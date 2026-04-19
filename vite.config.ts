@@ -16,8 +16,8 @@ export default defineConfig(({ mode }) => {
         viteStaticCopy({
           targets: [
             {
-              src: 'index.html',
-              dest: '.'
+              src: 'media/**/*',
+              dest: 'media'
             }
           ]
         })

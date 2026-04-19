@@ -79,28 +79,28 @@ export const GOOGLE_REVIEW_LINK = "https://g.page/r/Cc7LhwWcIYG9EBM/review";
 
 export const FAQ_ITEMS = [
   {
-    question: "Vos pilotes de drone sont-ils agréés et respectez-vous la réglementation ?",
-    answer: "Absolument. Chez Eagle Production, la sécurité est notre priorité. Nos pilotes sont agréés par la DGAC (Direction Générale de l'Aviation Civile) et disposent de tous les brevets nécessaires pour opérer en scénarios STS01 et STS02. Nous nous occupons de toutes les démarches administratives et demandes d'autorisations de vol (préfectures, mairies) avant chaque mission."
+    question: "Vos pilotes de drone sont-ils certifiés DGAC et couverts par une assurance ?",
+    answer: "Oui, absolument. Chez Eagle Production à Angoulême, nos télépilotes sont certifiés DGAC et habilités à opérer en scénarios STS01 et STS02 — les plus exigeants pour les missions commerciales en zone urbaine et péri-urbaine en Charente et Nouvelle-Aquitaine. Avant chaque mission, nous gérons l'intégralité des démarches : analyse des espaces aériens, déclarations de vol sur la plateforme officielle DGAC, autorisations préfectorales si nécessaire (notamment à proximité de l'aéroport Angoulême-Cognac). Nous disposons également d'une assurance responsabilité civile professionnelle drone, obligatoire pour toute opération commerciale. Sur demande, une attestation d'assurance peut être fournie avant intervention — document souvent requis par les maîtres d'ouvrage et promoteurs immobiliers en Charente."
   },
   {
-    question: "Quelle est la qualité des vidéos et photos livrées (4K, RAW) ?",
-    answer: "Nous utilisons des drones de dernière génération capables de filmer en 4K, voire 6K, offrant une qualité cinéma. Pour la photographie, nous livrons des fichiers en haute définition et en format RAW (brut) ou JPEG retouché, idéal pour l'impression grand format ou l'intégration sur votre site web."
+    question: "Quelle qualité d'images livrez-vous et dans quels délais ?",
+    answer: "Nos drones professionnels capturent en 4K Ultra HD avec des capteurs stabilisés 3 axes, offrant un rendu cinématographique adapté à tous vos supports : site web, réseaux sociaux, dossiers de chantier, présentations investisseurs. Pour la photographie aérienne immobilière en Charente, nous livrons des fichiers haute définition exploitables pour les portails comme SeLoger ou Leboncoin. Les livrables sont organisés par date et zone, et déposés via lien de téléchargement sécurisé dans les 48 heures suivant la mission. Pour les suivis de chantier drone à Angoulême, nous ajoutons des comparatifs côte-à-côte et un rapport PDF illustré. Pour les montages vidéo : 2 à 3 jours pour une vidéo courte, 5 à 7 jours pour un film d'entreprise avec étalonnage et sound design."
   },
   {
-    question: "Dans quels secteurs et pour quels types de projets intervenez-vous ?",
-    answer: "Chez Eagle Production, nous pouvons intervenir dans de nombreux domaines : immobilier, suivi de chantier, associatif, sportif, événementiel et bien d'autres.\nNos prestations couvrent aussi bien la vidéo, la photo, que des relevés visuels ou observations techniques pour accompagner vos projets.\nBref, dans chaque métier, chaque domaine et chaque projet, un drone peut être un précieux allié."
+    question: "Dans quels secteurs et sur quelle zone géographique intervenez-vous ?",
+    answer: "Eagle Production intervient dans toute la Nouvelle-Aquitaine avec une base à Angoulême, Charente. Nos secteurs principaux : immobilier (photos et vidéos aériennes de biens, lotissements, résidences neuves pour agences et promoteurs en Charente), BTP et construction (suivi de chantier drone avec orthophoto, comparatifs et rapport PDF pour conducteurs de travaux et maîtres d'ouvrage), inspection technique (toitures, façades, charpentes, infrastructures sans échafaudage), événementiel (mariages, festivals, événements sportifs, cérémonies en Angoulême et région), et communication d'entreprise (films institutionnels, vidéos de présentation, Reels Instagram pour PME et collectivités). Nous intervenons à Angoulême, Cognac, Saintes, Périgueux, Bordeaux, La Rochelle, Poitiers, Niort et dans toutes les communes de Charente."
   },
   {
-    question: "Quelles sont les contraintes météorologiques pour un tournage aérien ?",
-    answer: "Pour garantir des images stables et la sécurité du matériel, nous ne volons pas sous la pluie ou par vents violents (généralement supérieurs à 30-40 km/h). Nous surveillons la météo en temps réel. En cas de mauvaises conditions, la séance de prise de vue aérienne est reportée sans frais supplémentaires à une date ultérieure."
+    question: "Combien coûte une prestation drone ou montage vidéo à Angoulême ?",
+    answer: "Nos tarifs sont transparents et accessibles pour les professionnels et particuliers en Charente et Nouvelle-Aquitaine. Captation drone : formule Essentiel (images brutes, idéale pour vos équipes de post-production) à partir de 50 € HT pour 1h de vol. Formule Altitude (vidéo montée, étalonnée, prête à publier) à partir de 150 € HT pour 0-3 minutes — notre formule la plus populaire pour l'immobilier et l'événementiel. Formule Horizon (réalisation complète avec scénarisation, montage, sound design) à partir de 500 € HT. Pour le suivi de chantier drone en Charente, les forfaits sont établis sur devis selon la superficie et la fréquence. Les déplacements en Charente (16) sont inclus dans nos tarifs. Chaque devis est gratuit et envoyé sous 24 heures."
   },
   {
-    question: "Quel est le processus typique pour la création de mon identité visuelle ou de mon site web ?",
-    answer: "Notre processus se déroule en 4 phases :\nDécouverte & Stratégie : Échange initial pour définir vos objectifs, vos cibles et votre positionnement.\nConception : Création des maquettes, du design, de la charte graphique et du contenu (photos/vidéos incluses si besoin).\nDéveloppement & Validation : Intégration du site, développement des fonctionnalités ou finalisation des supports.\nLancement & Formation : Mise en ligne du site, livraison des fichiers et formation à l'utilisation si nécessaire."
+    question: "Proposez-vous aussi du montage vidéo et de la présence digitale sans drone ?",
+    answer: "Oui, Eagle Production à Angoulême est un studio de production complet. En plus de la captation drone, nous proposons : le montage vidéo professionnel de vos rushs existants (étalonnage couleur, sound design, sous-titres, déclinaisons multi-formats pour YouTube, Instagram Reels, TikTok, LinkedIn), la création d'identité visuelle (logo, charte graphique, supports de communication pour entreprises en Charente), la création de sites web professionnels (vitrines, portfolios, e-commerce, optimisés SEO local), et l'accompagnement en stratégie de présence digitale locale pour améliorer votre référencement sur Google à Angoulême et en Nouvelle-Aquitaine. Ces services peuvent être combinés pour des packages complets communication visuelle + digital."
   },
   {
-    question: "Mon site sera-t-il vraiment conforme aux normes actuelles (RGPD) et sécurisé contre les failles ?",
-    answer: "Oui, c'est une priorité absolue. Nous intégrons dès la conception la conformité RGPD (gestion des cookies, politiques de confidentialité) et la sécurité technique (certificats SSL, pare-feux). Votre site est livré sur une base solide et à jour. De plus, nos services de Maintenance sont disponibles pour assurer la sécurité et la conformité sur le long terme (mises à jour, sauvegardes et surveillance active)."
+    question: "Comment se déroule une mission et quelles sont les étapes jusqu'à la livraison ?",
+    answer: "Chez Eagle Production à Angoulême, notre process est rodé et transparent. Étape 1 : demande de devis gratuit (formulaire en ligne ou appel) avec description de votre projet en Charente ou Nouvelle-Aquitaine — réponse sous 24h. Étape 2 : brief créatif et planification (validation du cahier des charges, choix du créneau météo optimal, vérifications réglementaires DGAC). Étape 3 : mission terrain (captation drone, tournage, respect des périmètres de sécurité). Étape 4 : post-production (montage, étalonnage, sound design, sous-titres selon la formule choisie). Étape 5 : livraison d'un premier montage pour validation, puis 2 tours de révisions inclus. Étape 6 : livraison des fichiers finaux via lien sécurisé dans les formats convenus. De la demande de devis à la livraison finale, comptez entre 3 et 15 jours selon la complexité du projet."
   }
 ];
 
@@ -239,7 +239,7 @@ export const SERVICES_COMPLEMENTAIRES = {
 
 export const CONTACT = {
   email: "contact@eagle-prod.com",
-  phone: "+33 6 00 00 00 00", // À mettre à jour
+  phone: "+33 6 99 36 17 15", // À mettre à jour
   location: "Angoulême, Nouvelle-Aquitaine",
   socialLinks: {
     instagram: "https://www.instagram.com/eagleproduction",

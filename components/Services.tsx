@@ -2,8 +2,8 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { HardDrive, Film, Clapperboard, Check, Car, Camera, Usb, ArrowRight, Monitor, Palette, Search, Share2, ShieldCheck, X, Timer, CloudSun, Clock, Rocket, LifeBuoy, ChevronDown } from 'lucide-react';
 import { Transition } from '@headlessui/react';
 import { Reveal } from './Reveal';
-import essentielImg from '../media/images_formules/Essentiel.webp';
-import altitudeImg from '../media/images_formules/Altitude.webp';
+import essentielImg from '../media/images_formules/IMG_3658.webp';
+import altitudeImg from '../media/images_formules/IMG_4258.webp';
 import horizonImg from '../media/images_formules/Horizon.webp';
 import identiteVisuelleImg from '../media/images_formules/Identité_visuelle.webp';
 import presenceDigitalImg from '../media/images_formules/Présence_digitalv2.webp';
@@ -80,7 +80,7 @@ export const Services: React.FC = () => {
               className="group h-full relative bg-surfaceHighlight/30 backdrop-blur-xl border border-white/5 rounded-3xl p-6 lg:hover:bg-surfaceHighlight/50 transition-all duration-500 lg:hover:-translate-y-2 cursor-pointer overflow-hidden flex flex-col"
             >
               <div className="absolute inset-0 z-0 pointer-events-none">
-                <img src={essentielImg} alt="Formule Essentiel - Tournage drone professionnel à Angoulême avec caméra 4K" className="absolute inset-0 w-full h-full object-cover opacity-60" style={{ objectPosition: '50% 35%' }} loading="lazy" />
+                <img src={essentielImg} alt="Tournage drone professionnel - Prise de vue aérienne 4K" className="absolute inset-0 w-full h-full object-cover opacity-60" style={{ objectPosition: '50% 100%' }} loading="lazy" />
                 <div className="absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-black via-black/90 to-transparent"></div>
               </div>
               <div className="flex items-center gap-3 mb-6 relative z-10">
@@ -137,7 +137,7 @@ export const Services: React.FC = () => {
               className="group h-full relative bg-surfaceHighlight border border-accent/30 rounded-3xl p-6 shadow-2xl shadow-accent/5 z-10 transition-all duration-500 lg:hover:border-accent/50 cursor-pointer overflow-hidden flex flex-col"
             >
               <div className="absolute inset-0 z-0 pointer-events-none">
-                <img src={altitudeImg} alt="Formule Altitude - Montage vidéo professionnel et post-production drone" className="absolute inset-0 w-full h-full object-cover opacity-60" style={{ objectPosition: '50% 40%' }} loading="lazy" />
+                <img src={altitudeImg} alt="Montage vidéo professionnel - Post-production drone" className="absolute inset-0 w-full h-full object-cover opacity-60" style={{ objectPosition: '50% 40%' }} loading="lazy" />
                 <div className="absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-black via-black/90 to-transparent"></div>
               </div>
               <div className="flex items-center gap-3 mb-6 relative z-10">

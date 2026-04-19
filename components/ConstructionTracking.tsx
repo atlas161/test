@@ -27,8 +27,17 @@ export const ConstructionTracking: React.FC = () => {
           </Reveal>
           <Reveal delay={160}>
             <p className="mt-6 max-w-2xl text-lg md:text-xl text-textSecondary leading-relaxed">
-              Documentez l’avancement de vos travaux, anticipez les risques et facilitez la coordination grâce à des prises de vue aériennes régulières,
+              Documentez l'avancement de vos travaux, anticipez les risques et facilitez la coordination grâce à des prises de vue aériennes régulières,
               des orthophotos et des rapports clairs, adaptés au terrain.
+            </p>
+            <p className="mt-4 max-w-2xl text-lg md:text-xl text-textSecondary leading-relaxed">
+              Notre service de suivi de chantier par drone couvre toute la Charente, des projets urbains d'Angoulême aux zones rurales. 
+              Nous réalisons des vols périodiques pour suivre l'évolution des travaux, valider la conformité des plans, 
+              et fournir aux maîtres d'ouvrage et architectes une vision globale en temps réel de l'avancement.
+            </p>
+            <p className="mt-4 max-w-2xl text-lg md:text-xl text-textSecondary leading-relaxed">
+              Les livrables incluent photogrammétrie 3D, orthophotos haute résolution, vidéos 4K des points critiques, 
+              et rapports PDF détaillés avec annotations et recommandations pour optimiser la gestion de projet.
             </p>
           </Reveal>
           <Reveal delay={220}>
@@ -97,12 +106,12 @@ export const ConstructionTracking: React.FC = () => {
               </Reveal>
               <div className="space-y-3">
                 {[
-                  { icon: <Camera size={18} />, label: 'Photos / vidéos aériennes 4K cadrées aux points de repère' },
-                  { icon: <FileText size={18} />, label: 'Rapport PDF concis avec légendes et remarques' },
-                  { icon: <MapPinned size={18} />, label: 'Orthophoto (image géoréférencée) et vues top-down' },
-                  { icon: <BadgeCheck size={18} />, label: 'Comparatifs T-1 / T (mêmes altitudes et axes)' },
+                  { icon: <Camera size={18} />, label: 'Photos / vidéos aériennes 4K cadrées aux points de repère critiques avec annotations des zones de travail et accès sécurisés' },
+                  { icon: <FileText size={18} />, label: 'Rapport PDF détaillé avec légendes techniques, remarques sur l\'avancement et recommandations pour les prochaines phases' },
+                  { icon: <MapPinned size={18} />, label: 'Orthophoto géoréférencée haute résolution pour superposition avec les plans architecturaux et calcul des surfaces' },
+                  { icon: <BadgeCheck size={18} />, label: 'Comparatifs T-1 / T avec mêmes altitudes et axes pour mesurer précisément les volumes et progressions' },
                 ].map((f, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 bg-white/5 border border-white/10 rounded-xl">
+                  <div key={i} className="flex items-center gap-3 p-3 bg-white/5 border border-white/10 rounded-xl">
                     <div className="p-1.5 bg-accent/10 rounded-md text-accent">{f.icon}</div>
                     <p className="text-sm text-white/85 leading-relaxed">{f.label}</p>
                   </div>
@@ -118,10 +127,10 @@ export const ConstructionTracking: React.FC = () => {
               </Reveal>
               <div className="space-y-3">
                 {[
-                  'Étude des zones et autorisations admin. gérées',
-                  'Respect des hauteurs et périmètres de sécurité',
-                  'Plan de vol préparé, brief terrain, balisage',
-                  'Assurance RC Pro et sauvegarde des données',
+                  'Étude complète des zones et autorisations administratives gérées avec déclarations en préfecture et coordination avec les autorités locales',
+                  'Respect strict des hauteurs de vol et périmètres de sécurité selon la réglementation DGAC avec balisage professionnel du chantier',
+                  'Plan de vol détaillé préparé en amont, briefing terrain systématique et balisage conforme aux normes de sécurité aérienne',
+                  'Assurance RC Pro complète et sauvegarde sécurisée des données sur serveurs français avec conformité RGPD',
                 ].map((t, i) => (
                   <div key={i} className="flex items-center gap-3 p-3 bg-white/5 border border-white/10 rounded-xl">
                     <CheckCircle2 size={18} className="text-textPrimary shrink-0" />
@@ -304,6 +313,64 @@ export const ConstructionTracking: React.FC = () => {
                 </div>
                 <h4 className="text-white font-bold mb-2">{s.title}</h4>
                 <p className="text-sm text-textSecondary leading-relaxed">{s.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative z-10">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <Reveal>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Types de chantiers spécialisés
+              </h2>
+              <p className="text-lg text-textSecondary max-w-3xl mx-auto">
+                Chaque type de projet nécessite une approche spécifique. Notre expertise couvre tous les secteurs du BTP avec des protocoles adaptés.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Building2 size={24} className="text-accent" />,
+                title: "Construction neuve",
+                description: "Maisons individuelles, immeubles collectifs, bâtiments industriels. Suivi complet des fondations aux finitions avec validation de chaque étape clé."
+              },
+              {
+                icon: <Factory size={24} className="text-accent" />,
+                title: "Rénovation complète",
+                description: "Ravalement de façades, rénovation toiture, réaménagement intérieur. Documentation avant/après pour les assurances et DDT."
+              },
+              {
+                icon: <Briefcase size={24} className="text-accent" />,
+                title: "Extension surélévation",
+                description: "Ajouts d'étages, extensions latérales, vérandas. Contrôle des interfaces et des impacts sur la structure existante."
+              },
+              {
+                icon: <Calendar size={24} className="text-accent" />,
+                title: "Lotissement promotion",
+                description: "Suivi simultané de plusieurs maisons, contrôle des réseaux VRD, validation des alignements et des livraisons par phase."
+              },
+              {
+                icon: <ClipboardCheck size={24} className="text-accent" />,
+                title: "Travaux publics",
+                description: "Voiries, réseaux, aménagements urbains. Photogrammétrie pour contrôle des profils et calcul des volumes de terrassement."
+              },
+              {
+                icon: <BadgeEuro size={24} className="text-accent" />,
+                title: "Maîtrise d'œuvre",
+                description: "Support aux architectes et bureaux d'études avec livrables techniques adaptés aux DCE et suivi des réserves de chantier."
+              }
+            ].map((service, i) => (
+              <div key={i} className="bg-surfaceHighlight/20 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded-lg bg-accent/10 border border-accent/20">{service.icon}</div>
+                  <h3 className="text-lg font-bold text-white">{service.title}</h3>
+                </div>
+                <p className="text-sm text-textSecondary leading-relaxed">{service.description}</p>
               </div>
             ))}
           </div>

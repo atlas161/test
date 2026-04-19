@@ -1,7 +1,7 @@
 {
-  "published": true,
-  "category": "Administratif & sécurité",
-  "question": "Quel type de contrat proposez-vous ?",
-  "slug": "admin-contrats",
-  "answer": "<p>Nous établissons des contrats clairs détaillant : périmètre de la mission, livrables attendus, délais, conditions de paiement, droits d'utilisation des contenus, et clauses de confidentialité. Les contrats peuvent être au forfait, à la journée, ou sur devis personnalisé selon la nature et la durée de votre projet.</p>"
+    "published":  true,
+    "category":  "Administratif & sécurité",
+    "question":  "Y a-t-il un contrat pour chaque prestation ?",
+    "slug":  "admin-contrats",
+    "answer":  "<p>Oui, chaque mission réalisée par <strong>Eagle Production à Angoulême</strong> fait l'objet d'un <strong>devis détaillé puis d'un bon de commande</strong> signé avant le début des travaux. Ce document précise : la nature exacte de la prestation (captation drone, montage vidéo, inspection de bâtiment, suivi de chantier en <strong>Charente</strong>), le détail des livrables attendus (nombre de fichiers, formats, durée), les délais de réalisation et de livraison, les conditions de révision et les tours inclus, les conditions de règlement, et les droits d'utilisation des contenus produits.</p><p>Sur la <strong>propriété des contenus</strong> : vous êtes propriétaire des fichiers livrés et pouvez les utiliser librement pour tous vos supports de communication (site web, réseaux sociaux, plaquettes, présentations clients) dans le cadre d'une utilisation commerciale standard. Pour des utilisations spécifiques à plus grande échelle (diffusion télévisée, affichage publicitaire national), des droits étendus peuvent être définis contractuellement.</p><p>Nous travaillons avec des entreprises de toutes tailles en <strong>Nouvelle-Aquitaine</strong> — des artisans indépendants aux promoteurs immobiliers régionaux — et adaptons nos contrats à chaque contexte. La transparence administrative fait partie de notre ADN : pas de frais cachés, pas de surprise à la facturation. Un projet clair dès le départ, c'est la garantie d'une collaboration sereine.</p>"
 }

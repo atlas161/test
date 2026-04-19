@@ -1,7 +1,7 @@
 {
-  "published": true,
-  "category": "Digital",
-  "question": "Comment mesurer l'efficacité des contenus vidéo ?",
-  "slug": "digital-analytics",
-  "answer": "<p>Nous installons et configurons le suivi des performances avec Google Analytics 4, Search Console, et les outils natives des plateformes. Les KPIs suivis incluent : taux de vue, durée de visionnage, engagement (likes, partages), conversions générées, et impact sur le référencement. Nous fournissons des rapports mensuels avec recommandations d'optimisation.</p>"
+    "published":  true,
+    "category":  "Digital & présence en ligne",
+    "question":  "Comment mesurer l'efficacité de ma présence digitale locale ?",
+    "slug":  "digital-analytics",
+    "answer":  "<p>Mesurer le retour sur investissement de votre présence digitale est essentiel pour ajuster votre stratégie et ne pas investir à l'aveugle. Pour une <strong>entreprise à Angoulême ou en Charente</strong>, les outils indispensables sont gratuits et accessibles : <strong>Google Search Console</strong> pour suivre vos positions SEO sur les requêtes locales (quelles recherches amènent des visiteurs sur votre site, depuis quelles villes de <strong>Nouvelle-Aquitaine</strong>), <strong>Google Analytics 4</strong> pour analyser le comportement des visiteurs et identifier les pages qui convertissent, et <strong>Google Business Profile Insights</strong> pour mesurer les appels, les demandes d'itinéraire et les clics vers votre site depuis les recherches locales.</p><p>Les indicateurs clés à surveiller pour le <strong>SEO local à Angoulême</strong> : votre position dans le pack local Google Maps pour vos requêtes cibles (ex. : « drone Angoulême », « vidéo entreprise Charente »), le nombre de clics sur votre numéro de téléphone depuis la fiche Google Business, le taux de conversion de votre page contact (formulaires remplis vs visiteurs), et la croissance mensuelle de vos avis Google. Un suivi régulier de ces métriques, même une fois par mois, permet d'identifier ce qui fonctionne et d'optimiser en continu.</p><p>Chez <strong>Eagle Production</strong>, nous utilisons ces outils pour notre propre visibilité en <strong>Charente et Nouvelle-Aquitaine</strong> et pouvons partager nos bonnes pratiques lors d'un échange sur votre projet digital.</p>"
 }

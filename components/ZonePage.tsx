@@ -14,9 +14,9 @@ export const ZonePage: React.FC = () => {
   };
 
   useEffect(() => {
-    const title = 'Zone d’intervention | Eagle Production';
+    const title = 'Zone d’Intervention Drone Nouvelle-Aquitaine | Eagle Production Angoulême';
     const desc =
-      "Zone d’intervention drone: Angoulême, Charente (16) et Nouvelle-Aquitaine. Prestations à Cognac, Jarnac, La Rochelle, Bordeaux, Périgueux, Poitiers, Niort, Limoges et alentours.";
+      "Eagle Production intervient dans toute la Nouvelle-Aquitaine : Angoulême, Cognac, Bordeaux, La Rochelle, Poitiers, Périgueux, Niort, Saintes, Royan. Télépilote drone certifié DGAC, déplacement inclus en Charente.";
     document.title = title;
     const setMeta = (attr: 'name' | 'property', key: string, value: string) => {
       let el = document.querySelector(`meta[${attr}="${key}"]`) as HTMLMetaElement | null;

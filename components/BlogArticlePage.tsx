@@ -123,30 +123,6 @@ export const BlogArticlePage: React.FC = () => {
               dangerouslySetInnerHTML={{
                 __html: JSON.stringify({
                   '@context': 'https://schema.org',
-                  '@type': 'Article',
-                  headline: post.title,
-                  datePublished: post.date,
-                  dateModified: post.date,
-                  image: post.coverImage ? [`https://www.eagle-prod.com${post.coverImage}`] : undefined,
-                  keywords: post.tags?.join(', '),
-                  mainEntityOfPage: {
-                    '@type': 'WebPage',
-                    '@id': `https://www.eagle-prod.com/blog/${post.slug}`,
-                  },
-                  author: { '@type': 'Organization', name: 'Eagle Production' },
-                  publisher: { '@type': 'Organization', name: 'Eagle Production' },
-                  articleSection: post.category,
-                  description: post.excerpt || '',
-                  wordCount: post.body ? post.body.replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length : undefined,
-                  timeRequired: `PT${readingTime}M`,
-                }),
-              }}
-            />
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify({
-                  '@context': 'https://schema.org',
                   '@type': 'BreadcrumbList',
                   itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.eagle-prod.com/' },
@@ -219,11 +195,16 @@ export const BlogArticlePage: React.FC = () => {
                   {toc.length > 0 && (
                     <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
                       <div className="text-[11px] uppercase tracking-widest text-accent mb-2">Plan</div>
-                      <ul className="space-y-2">
-                        {toc.map((item) => (
-                          <li key={item.id} className={`${item.level === 3 ? 'pl-3' : ''}`}>
-                            <a href={`#${item.id}`} className="text-sm text-white/80 hover:text-accent transition-colors">{item.text}</a>
-                          </li>
+                      <ul className="space-y-1">
+                        {toc.map((item, index) => (
+                          <React.Fragment key={item.id}>
+                            {item.level === 2 && index !== 0 && (
+                              <li><hr className="border-white/10 my-1" /></li>
+                            )}
+                            <li className={`${item.level === 3 ? 'pl-3' : ''}`}>
+                              <a href={`#${item.id}`} className={`text-sm hover:text-accent transition-colors ${item.level === 2 ? 'text-white/90 font-medium' : 'text-white/60'}`}>{item.text}</a>
+                            </li>
+                          </React.Fragment>
                         ))}
                       </ul>
                     </div>

@@ -12,8 +12,8 @@ export const ContactPage: React.FC = () => {
   };
 
   useEffect(() => {
-    const title = 'Contact | Eagle Production';
-    const desc = "Contactez Eagle Production pour vos projets drone, vidéo et digital. Devis gratuit, réponse rapide.";
+    const title = 'Contact & Devis Gratuit | Eagle Production Angoulême — Drone & Vidéo';
+    const desc = "Contactez Eagle Production pour un devis gratuit : captation drone, montage vidéo, suivi de chantier ou inspection à Angoulême et en Nouvelle-Aquitaine. Réponse sous 24h.";
     document.title = title;
     const setMeta = (attr: 'name' | 'property', key: string, value: string) => {
       let el = document.querySelector(`meta[${attr}="${key}"]`) as HTMLMetaElement | null;
